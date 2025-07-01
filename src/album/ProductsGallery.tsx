@@ -5,25 +5,25 @@ import { useTheme } from '@/contexts/ThemeContext';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 // Placeholder images - replace with your actual product images
-import productImg1 from '../../assets/Products/1.jpg';
-import productImg2 from '../../assets/Products/2.jpg';
-import productImg3 from '../../assets/Products/3.jpg';
-import productImg4 from '../../assets/Products/4.jpg';
-import productImg5 from '../../assets/Products/5.jpg';
-import productImg6 from '../../assets/Products/6.jpg';
-import productImg7 from '../../assets/Products/7.jpg';
-import productImg8 from '../../assets/Products/8.jpg';
-import productImg9 from '../../assets/Products/9.jpg';
-import productImg10 from '../../assets/Products/10.jpg';
-import productImg11 from '../../assets/Products/11.jpg';
-import productImg12 from '../../assets/Products/12.jpg';
-import productImg13 from '../../assets/Products/13.jpg';
-import productImg14 from '../../assets/Products/14.jpg';
-import productImg15 from '../../assets/Products/15.jpg';
-import productImg16 from '../../assets/Products/16.jpg';
-import productImg17 from '../../assets/Products/17.jpg';
-import productImg18 from '../../assets/Products/18.jpg';
-import productImg19 from '../../assets/Products/19.jpg';
+import productImg1 from '../assets/Products/1.jpg';
+import productImg2 from '../assets/Products/2.jpg';
+import productImg3 from '../assets/Products/3.jpg';
+import productImg4 from '../assets/Products/4.jpg';
+import productImg5 from '../assets/Products/5.jpg';
+import productImg6 from '../assets/Products/6.jpg';
+import productImg7 from '../assets/Products/7.jpg';
+import productImg8 from '../assets/Products/8.jpg';
+import productImg9 from '../assets/Products/9.jpg';
+import productImg10 from '../assets/Products/10.jpg';
+import productImg11 from '../assets/Products/11.jpg';
+import productImg12 from '../assets/Products/12.jpg';
+import productImg13 from '../assets/Products/13.jpg';
+import productImg14 from '../assets/Products/14.jpg';
+import productImg15 from '../assets/Products/15.jpg';
+import productImg16 from '../assets/Products/16.jpg';
+import productImg17 from '../assets/Products/17.jpg';
+import productImg18 from '../assets/Products/18.jpg';
+import productImg19 from '../assets/Products/19.jpg';
 
 
 

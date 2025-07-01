@@ -5,18 +5,18 @@ import { useTheme } from '@/contexts/ThemeContext';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 // Placeholder images - replace with your actual graphic design images
-import graphicImg1 from '../../assets/Graphics/a.jpg';
-import graphicImg2 from '../../assets/Graphics/2.jpg';
-import graphicImg3 from '../../assets/Graphics/3.jpg';
-import graphicImg4 from '../../assets/Graphics/4.jpg';
-import graphicImg5 from '../../assets/Graphics/5.jpg';
-import graphicImg6 from '../../assets/Graphics/6.jpg';
-import graphicImg7 from '../../assets/Graphics/7.jpg';
-import graphicImg8 from '../../assets/Graphics/8.jpg';
-import graphicImg9 from '../../assets/Graphics/9.jpg';
-import graphicImg10 from '../../assets/Graphics/10.jpg';
-import graphicImg11 from '../../assets/Graphics/11.jpg';
-import graphicImg12 from '../../assets/Graphics/12.jpg';
+import graphicImg1 from '../assets/Graphics/a.jpg';
+import graphicImg2 from '../assets/Graphics/2.jpg';
+import graphicImg3 from '../assets/Graphics/3.jpg';
+import graphicImg4 from '../assets/Graphics/4.jpg';
+import graphicImg5 from '../assets/Graphics/5.jpg';
+import graphicImg6 from '../assets/Graphics/6.jpg';
+import graphicImg7 from '../assets/Graphics/7.jpg';
+import graphicImg8 from '../assets/Graphics/8.jpg';
+import graphicImg9 from '../assets/Graphics/9.jpg';
+import graphicImg10 from '../assets/Graphics/10.jpg';
+import graphicImg11 from '../assets/Graphics/11.jpg';
+import graphicImg12 from '../assets/Graphics/12.jpg';
 
 
 

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useTheme } from '@/contexts/ThemeContext';
 import ThemeToggle from './ThemeToggle';
-import logo from '../../assets/team/Greenland.png';
+import logo from '../assets/team/Greenland.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);

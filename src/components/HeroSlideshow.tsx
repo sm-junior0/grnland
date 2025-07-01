@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight, Play, Pause } from 'lucide-react';
-import Logo from '../../assets/about/logo.png';
-import reel from '../../assets/about/Reelforwebsite.mp4'
+import Logo from '../assets/about/logo.png';
+import reel from '../assets/about/Reelforwebsite.mp4'
 
 const HeroSlideshow = () => {
   const [isPaused, setIsPaused] = useState(false);

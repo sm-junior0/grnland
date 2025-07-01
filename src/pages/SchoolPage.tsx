@@ -24,19 +24,19 @@ import {
   Film,
   Zap,
 } from "lucide-react";
-import schoolImg1 from '../../assets/school/1.jpg';
-import schoolImg2 from '../../assets/school/2.jpg';
-import schoolImg3 from '../../assets/school/3.jpg';
-import schoolImg4 from '../../assets/school/4.jpg';
-import schoolImg5 from '../../assets/school/5.jpg';
-import schoolImg6 from '../../assets/school/6.jpg';
-import schoolImg7 from '../../assets/school/7.jpg';
-import schoolImg8 from '../../assets/school/8.jpg';
-import schoolImg9 from '../../assets/school/9.jpg';
-import schoolImg10 from '../../assets/school/10.jpg';
-import schoolImg11 from '../../assets/school/11.jpg';
-import logo from '../../assets/team/schoollogo.png';
-import CEO from '../../assets/team/DeusC.png'
+import schoolImg1 from '../assets/school/1.jpg';
+import schoolImg2 from '../assets/school/2.jpg';
+import schoolImg3 from '../assets/school/3.jpg';
+import schoolImg4 from '../assets/school/4.jpg';
+import schoolImg5 from '../assets/school/5.jpg';
+import schoolImg6 from '../assets/school/6.jpg';
+import schoolImg7 from '../assets/school/7.jpg';
+import schoolImg8 from '../assets/school/8.jpg';
+import schoolImg9 from '../assets/school/9.jpg';
+import schoolImg10 from '../assets/school/10.jpg';
+import schoolImg11 from '../assets/school/11.jpg';
+import logo from '../assets/team/schoollogo.png';
+import CEO from '../assets/team/DeusC.png'
 
 const SchoolPage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)

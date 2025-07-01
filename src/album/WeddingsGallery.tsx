@@ -4,16 +4,16 @@ import { Button } from '@/components/ui/button';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
-import weddingImg1 from '../../assets/weddings/1.jpg';
-import weddingImg2 from '../../assets/weddings/2.jpg';
-import weddingImg3 from '../../assets/weddings/3.jpg';
-import weddingImg4 from '../../assets/weddings/4.jpg';
-import weddingImg5 from '../../assets/weddings/5.jpg';
-import weddingImg6 from '../../assets/weddings/6.jpg';
-import weddingImg7 from '../../assets/weddings/7.jpg';
-import weddingImg8 from '../../assets/weddings/8.jpg';
-import weddingImg9 from '../../assets/weddings/9.jpg';
-import weddingImg10 from '../../assets/weddings/10.jpg';
+import weddingImg1 from '../assets/weddings/1.jpg';
+import weddingImg2 from '../assets/weddings/2.jpg';
+import weddingImg3 from '../assets/weddings/3.jpg';
+import weddingImg4 from '../assets/weddings/4.jpg';
+import weddingImg5 from '../assets/weddings/5.jpg';
+import weddingImg6 from '../assets/weddings/6.jpg';
+import weddingImg7 from '../assets/weddings/7.jpg';
+import weddingImg8 from '../assets/weddings/8.jpg';
+import weddingImg9 from '../assets/weddings/9.jpg';
+import weddingImg10 from '../assets/weddings/10.jpg';
 
 const WeddingsGallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);

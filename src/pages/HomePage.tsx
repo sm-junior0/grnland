@@ -8,52 +8,52 @@ import BackToTop from '@/components/BackToTop';
 import HeroSlideshow from '@/components/HeroSlideshow';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight, Mail, Phone, MapPin, Instagram, Play } from 'lucide-react';
-import logo from '../../assets/about/logo.png'
+import logo from '../assets/about/logo.png'
 
 // Partner Logos
-import partner1 from '../../assets/partners/1.png';
-import partner2 from '../../assets/partners/2.png';
-import partner3 from '../../assets/partners/3.png';
-import partner4 from '../../assets/partners/4.png';
-import partner5 from '../../assets/partners/5.png';
-import partner6 from '../../assets/partners/6.png';
-import partner7 from '../../assets/partners/7.png';
-import partner8 from '../../assets/partners/8.png';
-import partner9 from '../../assets/partners/9.png';
-import partner10 from '../../assets/partners/10.png';
-import partner11 from '../../assets/partners/11.png';
-import partner12 from '../../assets/partners/12.png';
-import partner13 from '../../assets/partners/13.png';
-import partner14 from '../../assets/partners/14.png';
-import partner15 from '../../assets/partners/15.png';
-import partner16 from '../../assets/partners/16.png';
-import partner17 from '../../assets/partners/17.png';
-import partner18 from '../../assets/partners/18.png';
-import partner19 from '../../assets/partners/19.png';
-import partner20 from '../../assets/partners/20.png';
-import partner21 from '../../assets/partners/21.png';
+import partner1 from '../assets/partners/1.png';
+import partner2 from '../assets/partners/2.png';
+import partner3 from '../assets/partners/3.png';
+import partner4 from '../assets/partners/4.png';
+import partner5 from '../assets/partners/5.png';
+import partner6 from '../assets/partners/6.png';
+import partner7 from '../assets/partners/7.png';
+import partner8 from '../assets/partners/8.png';
+import partner9 from '../assets/partners/9.png';
+import partner10 from '../assets/partners/10.png';
+import partner11 from '../assets/partners/11.png';
+import partner12 from '../assets/partners/12.png';
+import partner13 from '../assets/partners/13.png';
+import partner14 from '../assets/partners/14.png';
+import partner15 from '../assets/partners/15.png';
+import partner16 from '../assets/partners/16.png';
+import partner17 from '../assets/partners/17.png';
+import partner18 from '../assets/partners/18.png';
+import partner19 from '../assets/partners/19.png';
+import partner20 from '../assets/partners/20.png';
+import partner21 from '../assets/partners/21.png';
 
 // Add imports for first images of each category
-import weddingsImg1 from '../../assets/weddings/6.jpg';
-import corporatesImg1 from '../../assets/corporates/1.jpg';
-import eventsImg1 from '../../assets/events/1.jpg';
-import graphicsImg1 from '../../assets/graphics/a.jpg';
-import hotelsImg1 from '../../assets/hotels/1.jpg';
-import productsImg1 from '../../assets/products/1.jpg';
-import productsImg2 from '../../assets/products/2.jpg';
-import productsImg3 from '../../assets/products/3.jpg';
-import productsImg4 from '../../assets/products/4.jpg';
-import productsImg5 from '../../assets/products/5.jpg';
-import realestatesImg1 from '../../assets/realestates/1.jpg';
-import wildlifeImg1 from '../../assets/wildlife/1.jpg';
+import weddingsImg1 from '../assets/weddings/6.jpg';
+import corporatesImg1 from '../assets/corporates/1.jpg';
+import eventsImg1 from '../assets/events/1.jpg';
+import graphicsImg1 from '../assets/graphics/a.jpg';
+import hotelsImg1 from '../assets/hotels/1.jpg';
+import productsImg1 from '../assets/products/1.jpg';
+import productsImg2 from '../assets/products/2.jpg';
+import productsImg3 from '../assets/products/3.jpg';
+import productsImg4 from '../assets/products/4.jpg';
+import productsImg5 from '../assets/products/5.jpg';
+import realestatesImg1 from '../assets/realestates/1.jpg';
+import wildlifeImg1 from '../assets/wildlife/1.jpg';
 
 // Import local videos
-import video1 from '../../assets/videos/1.mp4';
-import video2 from '../../assets/videos/2.mp4';
-import video3 from '../../assets/videos/3.mp4';
-import video4 from '../../assets/videos/4.mp4';
-import video5 from '../../assets/videos/5.mp4';
-import reel from '../../assets/about/Reelforwebsite.mp4'
+import video1 from '../assets/videos/1.mp4';
+import video2 from '../assets/videos/2.mp4';
+import video3 from '../assets/videos/3.mp4';
+import video4 from '../assets/videos/4.mp4';
+import video5 from '../assets/videos/5.mp4';
+import reel from '../assets/about/Reelforwebsite.mp4'
 
 const HomePage = () => {
   const navigate = useNavigate();
