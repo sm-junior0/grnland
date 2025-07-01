@@ -23,7 +23,8 @@ const HeroSlideshow = () => {
 
   return (
     <div className="relative h-[92vh] overflow-hidden">
-      {/* Video background */}
+      {/* Video background (commented out) */}
+      {/*
       <video
         ref={videoRef}
         src={reel}
@@ -34,6 +35,7 @@ const HeroSlideshow = () => {
         playsInline
         style={{ zIndex: 0 }}
       />
+      */}
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/50 z-10" />
       {/* Logo in center */}
@@ -44,7 +46,8 @@ const HeroSlideshow = () => {
           className="max-w-md w-full h-auto animate-fade-in"
         />
       </div>
-      {/* Pause/Play button */}
+      {/* Pause/Play button (commented out) */}
+      {/**
       <button
         title={isPaused ? "Play video" : "Pause video"}
         onClick={togglePause}
@@ -52,6 +55,7 @@ const HeroSlideshow = () => {
       >
         {isPaused ? <Play size={24} /> : <Pause size={24} />}
       </button>
+      */}
     </div>
   );
 };

@@ -37,7 +37,7 @@ import partner21 from '../assets/partners/21.png';
 import weddingsImg1 from '../assets/weddings/6.jpg';
 import corporatesImg1 from '../assets/corporates/1.jpg';
 import eventsImg1 from '../assets/events/1.jpg';
-// import graphicsImg1 from '../assets/graphics/a.jpg';
+import graphicsImg1 from '../assets/graphics/a.jpg';
 import hotelsImg1 from '../assets/hotels/1.jpg';
 import productsImg1 from '../assets/products/1.jpg';
 import productsImg2 from '../assets/products/2.jpg';
@@ -273,7 +273,7 @@ creativity, and storytelling excellence worldwide</p>
               const categories = [
                 { title: 'Corporates', path: '/gallery/corporates', image: corporatesImg1, description: 'Professional Branding' },
                 { title: 'Events', path: '/gallery/events', image: eventsImg1, description: 'Memorable Occasions' },
-                { title: 'Graphics', path: '/gallery/graphics', image: weddingsImg1, description: 'Creative Designs' },
+                { title: 'Graphics', path: '/gallery/graphics', image: graphicsImg1, description: 'Creative Designs' },
                 { title: 'Hotels & Resorts', path: '/gallery/hotels', image: hotelsImg1, description: 'Luxury Stays' },
                 { title: 'Products', path: '/gallery/products', image: productsImg1, description: 'Commercial Showcase' },
                 { title: 'Real Estates', path: '/gallery/realestates', image: realestatesImg1, description: 'Architectural Beauty' },
