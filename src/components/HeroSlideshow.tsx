@@ -23,8 +23,8 @@ const HeroSlideshow = () => {
 
   return (
     <div className="relative h-[92vh] overflow-hidden">
-      {/* Video background (commented out) */}
-      {/*
+    
+    
       <video
         ref={videoRef}
         src={reel}
@@ -34,8 +34,8 @@ const HeroSlideshow = () => {
         muted
         playsInline
         style={{ zIndex: 0 }}
-      />
-      */}
+      /> 
+     
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/50 z-10" />
       {/* Logo in center */}
