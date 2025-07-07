@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { ArrowLeft, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useTheme } from '@/contexts/ThemeContext';
@@ -110,15 +110,24 @@ const EventsGallery = () => {
     { id: 48, src: eventImg48, alt: 'Event Photo 48', orientation: 'landscape' },
   ];
 
+  const shuffledImages = useMemo(() => {
+    const arr = [...eventImages];
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }, []);
+
   const nextImage = () => {
     if (selectedImage !== null) {
-      setSelectedImage((selectedImage + 1) % eventImages.length);
+      setSelectedImage((selectedImage + 1) % shuffledImages.length);
     }
   };
 
   const prevImage = () => {
     if (selectedImage !== null) {
-      setSelectedImage(selectedImage === 0 ? eventImages.length - 1 : selectedImage - 1);
+      setSelectedImage(selectedImage === 0 ? shuffledImages.length - 1 : selectedImage - 1);
     }
   };
 
@@ -152,12 +161,12 @@ const EventsGallery = () => {
       <div className="pt-20 pb-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className={`text-center mb-12 scroll-fade-in ${galleryAnimation.isVisible ? 'visible' : ''}`} ref={galleryAnimation.ref}>
-            <h2 className={`text-3xl md:text-4xl font-elegant mb-4 ${theme === 'dark' ? 'text-green-400' : 'text-green-600'}`}>Capturing Moments</h2>
+            <h2 className={`text-3xl md:text-4xl font-semibold mb-4 ${theme === 'dark' ? 'text-green-400' : 'text-green-600'}`}>Capturing Moments</h2>
             <p className={`text-lg ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>The energy and emotion of your special events.</p>
           </div>
 
           <div className="masonry-grid">
-            {eventImages.map((image, index) => (
+            {shuffledImages.map((image, index) => (
               <div
                 key={image.id}
                 className={`masonry-grid-item group cursor-pointer overflow-hidden rounded-lg animate-bounce-in hover:scale-105 transition-all duration-300 shadow-xl ${theme === 'dark' ? 'bg-custom-black' : 'bg-white'}`}
@@ -219,13 +228,13 @@ const EventsGallery = () => {
             </Button>
 
             <img
-              src={eventImages[selectedImage].src}
-              alt={eventImages[selectedImage].alt}
+              src={shuffledImages[selectedImage].src}
+              alt={shuffledImages[selectedImage].alt}
               className="max-w-full max-h-[90vh] object-contain rounded-lg"
             />
             
             <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/50 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm">
-              {selectedImage + 1} / {eventImages.length}
+              {selectedImage + 1} / {shuffledImages.length}
             </div>
           </div>
         </div>

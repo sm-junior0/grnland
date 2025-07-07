@@ -43,10 +43,10 @@ const ProductsGallery = () => {
     { id: 6, src: productImg6, alt: 'Product Photo 6', orientation: 'portrait' },
     { id: 7, src: productImg7, alt: 'Product Photo 7', orientation: 'landscape' },
     { id: 8, src: productImg8, alt: 'Product Photo 8', orientation: 'landscape' },
-    { id: 9, src: productImg9, alt: 'Product Photo 9', orientation: 'portrait' },
+    // { id: 9, src: productImg9, alt: 'Product Photo 9', orientation: 'portrait' },
     { id: 10, src: productImg10, alt: 'Product Photo 10', orientation: 'portrait' },
-    { id: 11, src: productImg11, alt: 'Product Photo 11', orientation: 'landscape' },
-    { id: 12, src: productImg12, alt: 'Product Photo 12', orientation: 'landscape' },
+    // { id: 11, src: productImg11, alt: 'Product Photo 11', orientation: 'landscape' },
+    // { id: 12, src: productImg12, alt: 'Product Photo 12', orientation: 'landscape' },
     { id: 13, src: productImg13, alt: 'Product Photo 13', orientation: 'portrait' },
     { id: 14, src: productImg14, alt: 'Product Photo 14', orientation: 'portrait' },
     { id: 15, src: productImg15, alt: 'Product Photo 15', orientation: 'landscape' },
@@ -99,7 +99,7 @@ const ProductsGallery = () => {
       <div className="pt-20 pb-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className={`text-center mb-12 scroll-fade-in ${galleryAnimation.isVisible ? 'visible' : ''}`} ref={galleryAnimation.ref}>
-            <h2 className={`text-3xl md:text-4xl font-elegant mb-4 ${theme === 'dark' ? 'text-green-400' : 'text-green-600'}`}>Commercial Showcase</h2>
+            <h2 className={`text-3xl md:text-4xl font-semibold mb-4 ${theme === 'dark' ? 'text-green-400' : 'text-green-600'}`}>Commercial Showcase</h2>
             <p className={`text-lg ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>Highlighting products with stunning commercial photography.</p>
           </div>
 

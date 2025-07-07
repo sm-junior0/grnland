@@ -17,6 +17,47 @@
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
+/* Client Logos Styles */
+.Client-Img-Row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0;
+}
+.Client-Img-Col {
+  display: inline-block;
+  width: calc(100% / 7);
+  text-align: center;
+}
+@media (max-width: 960px) {
+  .Client-Img-Col {
+    width: calc(100% / 5);
+  }
+}
+@media (max-width: 480px) {
+  .Client-Img-Col {
+    width: calc(100% / 3);
+  }
+  .Client-Logo {
+    height: 30px !important;
+  }
+}
+.Client-Logo {
+  width: 100% !important;
+  height: 120px !important;
+  object-fit: contain !important;
+  padding: 20px 5px;
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  transition: 200ms ease-in-out;
+  border-radius: 4px;
+  background: transparent;
+}
+.Client-Logo:hover {
+  margin-top: -5px;
+  filter: none;
+  -webkit-filter: grayscale(0%);
+}
 
 @keyframes logo-spin {
   from {

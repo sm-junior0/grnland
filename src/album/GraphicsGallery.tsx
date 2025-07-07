@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { ArrowLeft, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useTheme } from '@/contexts/ThemeContext';
@@ -39,6 +39,15 @@ const GraphicsGallery = () => {
     { id: 11, src: graphicImg11, alt: 'Graphic Design 11', orientation: 'landscape' },
     { id: 12, src: graphicImg12, alt: 'Graphic Design 12', orientation: 'landscape' },
   ];
+
+  const shuffledImages = useMemo(() => {
+    const arr = [...graphicImages];
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }, []);
 
   const nextImage = () => {
     if (selectedImage !== null) {
@@ -82,12 +91,12 @@ const GraphicsGallery = () => {
       <div className="pt-20 pb-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className={`text-center mb-12 scroll-fade-in ${galleryAnimation.isVisible ? 'visible' : ''}`} ref={galleryAnimation.ref}>
-            <h2 className={`text-3xl md:text-4xl font-elegant mb-4 ${theme === 'dark' ? 'text-green-400' : 'text-green-600'}`}>Visual Creations</h2>
+            <h2 className={`text-3xl md:text-4xl font-semibold mb-4 ${theme === 'dark' ? 'text-green-400' : 'text-green-600'}`}>Visual Creations</h2>
             <p className={`text-lg ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>A collection of our creative graphic designs.</p>
           </div>
 
           <div className="masonry-grid">
-            {graphicImages.map((image, index) => (
+            {shuffledImages.map((image, index) => (
               <div
                 key={image.id}
                 className={`masonry-grid-item group cursor-pointer overflow-hidden rounded-lg animate-bounce-in hover:scale-105 transition-all duration-300 shadow-xl ${theme === 'dark' ? 'bg-custom-black' : 'bg-white'}`}
@@ -149,8 +158,8 @@ const GraphicsGallery = () => {
             </Button>
 
             <img
-              src={graphicImages[selectedImage].src}
-              alt={graphicImages[selectedImage].alt}
+              src={shuffledImages[selectedImage].src}
+              alt={shuffledImages[selectedImage].alt}
               className="max-w-full max-h-[90vh] object-contain rounded-lg"
             />
             

@@ -25,27 +25,32 @@ const HeroSlideshow = () => {
     <div className="relative h-[92vh] overflow-hidden">
     
     
-      <video
-        ref={videoRef}
-        src={reel}
-        className="absolute inset-0 w-full h-full object-cover"
-        autoPlay
-        loop
-        muted
-        playsInline
-        style={{ zIndex: 0 }}
-      /> 
+    <div className="relative h-[92vh] overflow-hidden">
+  <video
+    ref={videoRef}
+    src={reel}
+    className="absolute inset-0 w-full h-full object-cover"
+    autoPlay
+    loop
+    muted
+    playsInline
+    style={{ zIndex: 0 }}
+  />
+  {/* Green overlay */}
+  <div className="absolute inset-0" style={{ background: 'rgba(47, 89, 0, 0.45)', zIndex: 1 }} />
+  {/* ...rest of your content... */}
+</div>
      
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/50 z-10" />
+      {/* <div className="absolute inset-0 bg-black/50 z-10" /> */}
       {/* Logo in center */}
-      <div className="absolute inset-0 flex items-center justify-center z-20">
+      {/* <div className="absolute inset-0 flex items-center justify-center z-20">
         <img 
           src={Logo} 
           alt="Greenland Film and Television School" 
           className="max-w-md w-full h-auto animate-fade-in"
         />
-      </div>
+      </div> */}
       {/* Pause/Play button (commented out) */}
       {/**
       <button

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { ArrowLeft, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useTheme } from '@/contexts/ThemeContext';
@@ -14,6 +14,15 @@ import weddingImg7 from '../assets/weddings/7.jpg';
 import weddingImg8 from '../assets/weddings/8.jpg';
 import weddingImg9 from '../assets/weddings/9.jpg';
 import weddingImg10 from '../assets/weddings/10.jpg';
+import weddingImg11 from '../assets/weddings/11.jpg';
+import weddingImg12 from '../assets/weddings/12.jpg';
+import weddingImg13 from '../assets/weddings/13.jpg';
+import weddingImg14 from '../assets/weddings/14.jpg';
+import weddingImg15 from '../assets/weddings/15.jpg';
+import weddingImg16 from '../assets/weddings/16.jpg';
+import weddingImg17 from '../assets/weddings/17.jpg';
+
+
 
 const WeddingsGallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -80,18 +89,69 @@ const WeddingsGallery = () => {
       src: weddingImg10,
       alt: 'Sentimental portrait of the couple',
       orientation: 'portrait'
+    },
+    {
+      id: 11,
+      src: weddingImg11,
+      alt: 'Bride walking down the aisle',
+      orientation: 'portrait'
+    },
+    {
+      id: 12,
+      src: weddingImg12,
+      alt: 'Wedding cake cutting ceremony',
+      orientation: 'landscape'
+    },
+    {
+      id: 13,
+      src: weddingImg13,
+      alt: 'Couple first dance',
+      orientation: 'landscape'
+    },
+    {
+      id: 14,
+      src: weddingImg14,
+      alt: 'Bridal bouquet toss',
+      orientation: 'portrait'
+    },
+    {
+      id: 15,
+      src: weddingImg15,
+      alt: 'Romantic sunset portrait',
+      orientation: 'landscape'
+    },
+    {
+      id: 16,
+      src: weddingImg16,
+      alt: 'Traditional wedding ceremony',
+      orientation: 'portrait'
+    },
+    {
+      id: 17,
+      src: weddingImg17,
+      alt: 'Grand wedding exit',
+      orientation: 'landscape'
     }
   ];
 
+  const shuffledImages = useMemo(() => {
+    const arr = [...weddingImages];
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }, []);
+
   const nextImage = () => {
     if (selectedImage !== null) {
-      setSelectedImage((selectedImage + 1) % weddingImages.length);
+      setSelectedImage((selectedImage + 1) % shuffledImages.length);
     }
   };
 
   const prevImage = () => {
     if (selectedImage !== null) {
-      setSelectedImage(selectedImage === 0 ? weddingImages.length - 1 : selectedImage - 1);
+      setSelectedImage(selectedImage === 0 ? shuffledImages.length - 1 : selectedImage - 1);
     }
   };
 
@@ -125,12 +185,12 @@ const WeddingsGallery = () => {
       <div className="pt-20 pb-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className={`text-center mb-12 scroll-fade-in ${galleryAnimation.isVisible ? 'visible' : ''}`} ref={galleryAnimation.ref}>
-            <h2 className={`text-3xl md:text-4xl font-elegant mb-4 ${theme === 'dark' ? 'text-green-400' : 'text-green-600'}`}>Wedding Stories</h2>
+            <h2 className={`text-3xl md:text-4xl font-semibold mb-4 ${theme === 'dark' ? 'text-green-400' : 'text-green-600'}`}>Wedding Stories</h2>
             <p className={`text-lg ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>Capturing love stories in their most authentic moments</p>
           </div>
 
           <div className="masonry-grid">
-            {weddingImages.map((image, index) => (
+            {shuffledImages.map((image, index) => (
               <div
                 key={image.id}
                 className={`masonry-grid-item group cursor-pointer overflow-hidden rounded-lg animate-bounce-in hover:scale-105 transition-all duration-300 shadow-xl ${theme === 'dark' ? 'bg-custom-black' : 'bg-white'}`}
@@ -192,8 +252,8 @@ const WeddingsGallery = () => {
             </Button>
 
             <img
-              src={weddingImages[selectedImage].src}
-              alt={weddingImages[selectedImage].alt}
+              src={shuffledImages[selectedImage].src}
+              alt={shuffledImages[selectedImage].alt}
               className="max-w-full max-h-[90vh] object-contain rounded-lg"
             />
             

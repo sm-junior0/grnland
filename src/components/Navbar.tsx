@@ -3,6 +3,7 @@ import { Menu, X } from 'lucide-react';
 import { useTheme } from '@/contexts/ThemeContext';
 import ThemeToggle from './ThemeToggle';
 import logo from '../assets/team/Greenland.png';
+import logo2 from '../assets/team/Greenlandwhite.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,7 +17,7 @@ const Navbar = () => {
     { href: '#videos', label: 'Videos' },
     { href: '#team', label: 'Team' },
     { href: '#catalogue', label: 'Catalogue' },
-    { href: '#partners', label: 'Partners' },
+    { href: '#partners', label: 'Clients' },
     { href: '#contact', label: 'Contact' },
     { href: `${window.location.origin}/school`, label: 'School', external: true },
   ];
@@ -55,7 +56,7 @@ const Navbar = () => {
             className="flex items-center space-x-2 cursor-pointer"
           >
             <div className="text-2xl font-bold">
-              <img src={logo} alt="Greenland Film & TV School Logo" className="h-28 w-auto" />
+              <img src={logo2} alt="Greenland Film & TV School Logo" className="h-28 w-auto" />
             </div>
           </button>
 

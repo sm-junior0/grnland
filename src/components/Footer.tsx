@@ -11,11 +11,13 @@ const Footer = () => {
           <div>
             <h3 className={`text-xl font-bold mb-4 ${theme === 'dark' ? 'text-white' : 'text-black'}`}>Greenland Film & TV School</h3>
             <p className={`mb-4 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
-              Inspiring a new generation of creative film professionals through practical, hands-on education.
+            Explore our film school where we inspire a new generation of creative film professionals through practical, hands-on education.
             </p>
             <div className={`flex items-center space-x-2 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
-              <Contact size={16} />
-              <span>Learn by Doing</span>
+              <a href="/school" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-5 py-2 rounded-full font-semibold shadow transition-colors text-white" style={{ backgroundColor: '#2F5A00' }} onMouseOver={e => e.currentTarget.style.backgroundColor = '#244603'} onMouseOut={e => e.currentTarget.style.backgroundColor = '#2F5A00'}>
+                <Contact size={16} className="mr-2" />
+                Explore Our School
+              </a>
             </div>
           </div>
 
@@ -34,7 +36,7 @@ const Footer = () => {
             <div className={`space-y-2 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
               <div className="flex items-center space-x-2">
                 <Mail size={16} />
-                <span>greenlandfilmschool@gmail.com</span>
+                <span>info@greenlandpictures.rw</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Contact size={16} />
@@ -50,7 +52,7 @@ const Footer = () => {
         </div>
 
         <div className={`border-t mt-8 pt-8 text-center ${theme === 'dark' ? 'border-gray-800 text-gray-400' : 'border-gray-300 text-gray-600'}`}>
-          <p>&copy; 2024 Greenland Film and Television School. All rights reserved.</p>
+          <p>&copy; 2020 Greenland Pictures. All rights reserved.</p>
         </div>
       </div>
     </footer>

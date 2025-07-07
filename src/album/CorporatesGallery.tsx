@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { ArrowLeft, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useTheme } from '@/contexts/ThemeContext';
@@ -49,8 +49,8 @@ const CorporatesGallery = () => {
 
   const corporateImages = [
     { id: 1, src: corpImg1, alt: 'Corporate Event Photo 1', orientation: 'landscape' },
-    { id: 2, src: corpImg2, alt: 'Corporate Headshot', orientation: 'portrait' },
-    { id: 3, src: corpImg3, alt: 'Office Environment', orientation: 'landscape' },
+    // { id: 2, src: corpImg2, alt: 'Corporate Headshot', orientation: 'portrait' },
+    // { id: 3, src: corpImg3, alt: 'Office Environment', orientation: 'landscape' },
     { id: 4, src: corpImg4, alt: 'Team Collaboration', orientation: 'landscape' },
     { id: 5, src: corpImg5, alt: 'Corporate Branding', orientation: 'portrait' },
     { id: 6, src: corpImg6, alt: 'Business Meeting', orientation: 'landscape' },
@@ -85,6 +85,16 @@ const CorporatesGallery = () => {
     { id: 35, src: corpImg35, alt: 'Corporate Branding Elements', orientation: 'portrait' },
     { id: 36, src: corpImg36, alt: 'Final Corporate Event Photo', orientation: 'landscape' },
   ];
+
+  // Shuffle images for display
+  const shuffledImages = useMemo(() => {
+    const arr = [...corporateImages];
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }, []);
 
   const nextImage = () => {
     if (selectedImage !== null) {
@@ -128,12 +138,12 @@ const CorporatesGallery = () => {
       <div className="pt-20 pb-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className={`text-center mb-12 scroll-fade-in ${galleryAnimation.isVisible ? 'visible' : ''}`} ref={galleryAnimation.ref}>
-            <h2 className={`text-3xl md:text-4xl font-elegant mb-4 ${theme === 'dark' ? 'text-green-400' : 'text-green-600'}`}>Professional Branding</h2>
+            <h2 className={`text-3xl md:text-4xl font-semibold mb-4 ${theme === 'dark' ? 'text-green-400' : 'text-green-600'}`}>Professional Branding</h2>
             <p className={`text-lg ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>Capturing the essence of your corporate identity.</p>
           </div>
 
           <div className="masonry-grid">
-            {corporateImages.map((image, index) => (
+            {shuffledImages.map((image, index) => (
               <div
                 key={image.id}
                 className={`masonry-grid-item group cursor-pointer overflow-hidden rounded-lg animate-bounce-in hover:scale-105 transition-all duration-300 shadow-xl ${theme === 'dark' ? 'bg-custom-black' : 'bg-white'}`}
@@ -195,8 +205,8 @@ const CorporatesGallery = () => {
             </Button>
 
             <img
-              src={corporateImages[selectedImage].src}
-              alt={corporateImages[selectedImage].alt}
+              src={shuffledImages[selectedImage].src}
+              alt={shuffledImages[selectedImage].alt}
               className="max-w-full max-h-[90vh] object-contain rounded-lg"
             />
             

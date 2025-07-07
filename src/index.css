@@ -193,4 +193,57 @@
     break-inside: avoid;
     margin-bottom: 1rem;
   }
+
+  .header-greenland {
+    color: #2F5A00 !important;
+  }
+  .header-underline {
+    background-color: #2F5A00 !important;
+    height: 0.25rem !important;
+    border-radius: 9999px;
+    margin-bottom: 2rem;
+  }
+
+  /* Client Logos Styles */
+  .Client-Img-Row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0;
+  }
+  .Client-Img-Col {
+    display: inline-block;
+    width: calc(100% / 7);
+    text-align: center;
+  }
+  @media (max-width: 960px) {
+    .Client-Img-Col {
+      width: calc(100% / 5);
+    }
+  }
+  @media (max-width: 480px) {
+    .Client-Img-Col {
+      width: calc(100% / 3);
+    }
+    .Client-Logo {
+      height: 30px !important;
+    }
+  }
+  .Client-Logo {
+    width: 100px !important;
+    height: 120px !important;
+    object-fit: contain !important;
+    margin: 0 auto;
+    display: block;
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    transition: 200ms ease-in-out;
+    border-radius: 4px;
+    background: transparent;
+  }
+  .Client-Logo:hover {
+    margin-top: -5px;
+    filter: none;
+    -webkit-filter: grayscale(0%);
+  }
 }
