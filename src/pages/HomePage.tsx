@@ -56,6 +56,7 @@ import partner33 from '../assets/partners/33.png';
 import partner34 from '../assets/partners/34.png';
 import partner35 from '../assets/partners/35.png';
 import partner36 from '../assets/partners/36.png';
+import partner37 from '../assets/partners/37.png';
 
 
 // Add imports for first images of each category
@@ -78,9 +79,12 @@ import video2 from '../assets/videos/2.mp4';
 import video3 from '../assets/videos/3.mp4';
 import video4 from '../assets/videos/4.mp4';
 import video5 from '../assets/videos/5.mp4';
+import video6 from '../assets/videos/6.mp4';
+import video7 from '../assets/videos/7.mp4';
+import video8 from '../assets/videos/8.mp4';
 import reel from '../assets/about/Reelforwebsite.mp4'
 
-import manziImg from '../assets/catalogs/manzi.png';
+import manziImg from '../assets/catalogs/manzi.jpg';
 import ndategerejeImg from '../assets/catalogs/ndategereje.png';
 import aceofheartImg from '../assets/catalogs/aceofheart.png';
 import itaraImg from '../assets/catalogs/itara.png';
@@ -89,6 +93,15 @@ import incubationImg from '../assets/catalogs/incubation.png';
 import shecanImg from '../assets/catalogs/shecan.png';
 import forgiven from '../assets/catalogs/forgive.jpg';
 import intrusion from '../assets/catalogs/Intrusion.jpeg';
+
+import poster1 from '../assets/videos/posters/1.png'
+import poster2 from '../assets/videos/posters/2.png'
+import poster3 from '../assets/videos/posters/3.png'
+import poster4 from '../assets/videos/posters/4.png'
+import poster5 from '../assets/videos/posters/5.png'
+import poster6 from '../assets/videos/posters/6.png'
+import poster7 from '../assets/videos/posters/7.png'
+import poster8 from '../assets/videos/posters/8.png'
 
 
 const HomePage = () => {
@@ -110,52 +123,79 @@ const HomePage = () => {
   const videos = [
     {
       id: 1,
-      title: 'Culinary Delights',
-      description: 'Experience the artistry and passion behind our signature dishes, crafted to tantalize your taste buds and elevate every meal.',
-      category: 'Cuisine',
+      title: 'CanalBox – Fast Internet for Modern Living',
+      description: 'Experience the speed and reliability of CanalBox, designed to keep your home and business seamlessly connected.',
+      category: 'Advertisement',
       duration: '1:00',
       src: video1,
-      poster: productsImg1
+      poster: poster1
     },
     {
       id: 2,
-      title: 'The World of Refreshments',
-      description: 'Discover our vibrant selection of beverages, from classic favorites to innovative new creations, each poured with care.',
-      category: 'Beverages',
+      title: 'Umurobyi Hotel – Your Home Away from Home',
+      description: 'Discover comfort and elegance at Umurobyi Hotel, where every stay is a memorable experience.',
+      category: 'Hotel Ad',
       duration: '1:00',
       src: video2,
-      poster: productsImg2
+      poster: poster2
     },
     {
       id: 3,
-      title: 'Crafting Cocktails',
-      description: 'Step into our bar and watch as our mixologists blend flavors and creativity to deliver unforgettable cocktail experiences.',
-      category: 'Cocktails',
+      title: 'Crafting Signature Cocktails',
+      description: 'Step behind the bar and watch as expert mixologists create vibrant, flavorful cocktails.',
+      category: 'Lifestyle',
       duration: '1:00',
       src: video3,
-      poster: productsImg3
+      poster: poster3
     },
     {
       id: 4,
-      title: 'Exceptional Hospitality',
-      description: 'See how our team goes above and beyond to provide warm, attentive service that makes every guest feel special.',
-      category: 'Service',
+      title: "Orga's Home – A Modern Living Space",
+      description: 'Tour Orga’s beautifully designed home, blending comfort, style, and functionality.',
+      category: 'Real Estate',
       duration: '1:00',
       src: video4,
-      poster: productsImg4
+      poster: poster4
     },
     {
       id: 5,
-      title: 'Wildlife Wonders',
-      description: 'Journey into the wild and witness the breathtaking beauty and diversity of nature through our lens.',
+      title: 'Wildlife Wonders – Nature Unveiled',
+      description: 'Explore the breathtaking beauty and diversity of wildlife in their natural habitats.',
       category: 'Wildlife',
       duration: '1:00',
       src: video5,
-      poster: productsImg5
+      poster: poster5
+    },
+    {
+      id: 6,
+      title: 'Refreshing Drinks – Pouring Perfection',
+      description: 'A showcase of expertly crafted drinks, perfect for any occasion.',
+      category: 'Beverages',
+      duration: '1:00',
+      src: video6,
+      poster: poster6
+    },
+    {
+      id: 7,
+      title: 'Into the Wild – Untamed Beauty',
+      description: 'A cinematic journey through the wonders of the wild, capturing rare moments in nature.',
+      category: 'Wildlife',
+      duration: '1:00',
+      src: video7,
+      poster: poster7
+    },
+    {
+      id: 8,
+      title: 'Culinary Delights – A Feast for the Senses',
+      description: 'Indulge in a visual celebration of exquisite foods, expertly prepared and beautifully presented.',
+      category: 'Food',
+      duration: '1:00',
+      src: video8,
+      poster: poster8
     },
   ];
 
-  const [playingVideos, setPlayingVideos] = useState<Set<number>>(new Set());
+  const [modalVideo, setModalVideo] = useState(null);
 
   // Team members
   const teamMembers = [
@@ -320,6 +360,7 @@ const HomePage = () => {
   { id: 31, name: 'Partner 31 Name', logo: partner34, description: 'Partner 31 description' },
   { id: 31, name: 'Partner 31 Name', logo: partner35, description: 'Partner 31 description' },
   { id: 31, name: 'Partner 31 Name', logo: partner36, description: 'Partner 31 description' },
+  { id: 31, name: 'Partner 31 Name', logo: partner37, description: 'Partner 31 description' },
   ];
   
 
@@ -461,57 +502,27 @@ creativity, and storytelling excellence worldwide</p>
           <div className="space-y-8">
             {/* First Row - 2 Videos */}
             <div className="grid md:grid-cols-2 gap-8">
-              {videos.slice(0, 2).map((video, idx) => (
+              {videos.slice(0, 2).map((video) => (
                 <div 
-                  key={video.id} 
-                  className={`group cursor-pointer animate-bounce-in transition-all duration-300 hover:scale-105 ${playingVideos.has(idx) ? 'ring-2 ring-green-400' : ''}`}
-                  style={{animationDelay: `${idx * 0.1}s`}}
-                  onClick={() => {
-                    setPlayingVideos(prev => {
-                      const newSet = new Set(prev);
-                      if (newSet.has(idx)) {
-                        newSet.delete(idx);
-                      } else {
-                        newSet.add(idx);
-                      }
-                      return newSet;
-                    });
-                  }}
+                  key={video.id + '-' + video.src} 
+                  className={`group cursor-pointer animate-bounce-in transition-all duration-300 hover:scale-105 ${modalVideo && modalVideo.id === video.id && modalVideo.src === video.src ? 'ring-2 ring-green-400' : ''}`}
+                  onClick={() => setModalVideo(video)}
                 >
                   <div className={`relative overflow-hidden rounded-lg shadow-xl ${theme === 'dark' ? 'bg-custom-black' : 'bg-white'}`}> 
-                    {playingVideos.has(idx) ? (
-                      <div className="relative aspect-video">
-                        <video 
-                          src={video.src} 
-                          className="w-full h-full" 
-                          controls 
-                          autoPlay
-                          poster={video.poster}
-                        />
+                    <div className="relative w-full h-80 bg-black flex items-center justify-center" style={{backgroundImage: `url(${video.poster})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
+                      <div className="absolute inset-0 bg-black/40"></div>
+                      <Play size={48} className="text-white opacity-80 relative z-10" />
+                      <div className="absolute top-3 right-3 z-10">
+                        <span className={`px-3 py-1 rounded-full text-xs font-medium ${theme === 'dark' ? 'bg-custom-black/90 text-white' : 'bg-white/90 text-black'}`}>{video.duration}</span>
                       </div>
-                    ) : (
-                      <div className="relative w-full h-80 bg-black flex items-center justify-center" style={{backgroundImage: `url(${video.poster})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
-                        <div className="absolute inset-0 bg-black/40"></div>
-                        <Play size={48} className="text-white opacity-80 relative z-10" />
-                        <div className="absolute top-3 right-3 z-10">
-                          <span className={`px-3 py-1 rounded-full text-xs font-medium ${theme === 'dark' ? 'bg-custom-black/90 text-white' : 'bg-white/90 text-black'}`}>{video.duration}</span>
-                        </div>
-                      </div>
-                    )}
+                    </div>
                     <div className="p-6">
                       <div className="flex items-center gap-2 mb-3">
                         <span className={`px-3 py-1 rounded-full text-xs font-medium ${theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-800'}`}>{video.category}</span>
-                        {!playingVideos.has(idx) && (
-                          <span className={`text-xs ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>{video.duration}</span>
-                        )}
+                        <span className={`text-xs ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>{video.duration}</span>
                       </div>
                       <h4 className={`font-semibold mb-2 text-lg line-clamp-2 ${theme === 'dark' ? 'text-white' : 'text-black'}`}>{video.title}</h4>
                       <p className={`text-sm line-clamp-2 leading-relaxed ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>{video.description}</p>
-                      {playingVideos.has(idx) && (
-                        <div className="mt-4 pt-4 border-t border-gray-700">
-                          <p className={`text-xs ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>Click to pause video</p>
-                        </div>
-                      )}
                     </div>
                   </div>
                 </div>
@@ -519,64 +530,59 @@ creativity, and storytelling excellence worldwide</p>
             </div>
             {/* Second Row - 3 Videos */}
             <div className="grid md:grid-cols-3 gap-8">
-              {videos.slice(2, 5).map((video, i) => {
-                const idx = i + 2;
-                return (
-                  <div 
-                    key={video.id} 
-                    className={`group cursor-pointer animate-bounce-in transition-all duration-300 hover:scale-105 ${playingVideos.has(idx) ? 'ring-2 ring-green-400' : ''}`}
-                    style={{animationDelay: `${idx * 0.1}s`}}
-                    onClick={() => {
-                      setPlayingVideos(prev => {
-                        const newSet = new Set(prev);
-                        if (newSet.has(idx)) {
-                          newSet.delete(idx);
-                        } else {
-                          newSet.add(idx);
-                        }
-                        return newSet;
-                      });
-                    }}
-                  >
-                    <div className={`relative overflow-hidden rounded-lg shadow-xl ${theme === 'dark' ? 'bg-custom-black' : 'bg-white'}`}> 
-                      {playingVideos.has(idx) ? (
-                        <div className="relative aspect-video">
-                          <video 
-                            src={video.src} 
-                            className="w-full h-full" 
-                            controls 
-                            autoPlay
-                            poster={video.poster}
-                          />
-                        </div>
-                      ) : (
-                        <div className="relative w-full h-64 bg-black flex items-center justify-center" style={{backgroundImage: `url(${video.poster})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
-                          <div className="absolute inset-0 bg-black/40"></div>
-                          <Play size={48} className="text-white opacity-80 relative z-10" />
-                          <div className="absolute top-3 right-3 z-10">
-                            <span className={`px-3 py-1 rounded-full text-xs font-medium ${theme === 'dark' ? 'bg-custom-black/90 text-white' : 'bg-white/90 text-black'}`}>{video.duration}</span>
-                          </div>
-                        </div>
-                      )}
-                      <div className="p-6">
-                        <div className="flex items-center gap-2 mb-3">
-                          <span className={`px-3 py-1 rounded-full text-xs font-medium ${theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-800'}`}>{video.category}</span>
-                          {!playingVideos.has(idx) && (
-                            <span className={`text-xs ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>{video.duration}</span>
-                          )}
-                        </div>
-                        <h4 className={`font-semibold mb-2 text-lg line-clamp-2 ${theme === 'dark' ? 'text-white' : 'text-black'}`}>{video.title}</h4>
-                        <p className={`text-sm line-clamp-2 leading-relaxed ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>{video.description}</p>
-                        {playingVideos.has(idx) && (
-                          <div className="mt-4 pt-4 border-t border-gray-700">
-                            <p className={`text-xs ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>Click to pause video</p>
-                          </div>
-                        )}
+              {videos.slice(2, 5).map((video) => (
+                <div 
+                  key={video.id + '-' + video.src} 
+                  className={`group cursor-pointer animate-bounce-in transition-all duration-300 hover:scale-105 ${modalVideo && modalVideo.id === video.id && modalVideo.src === video.src ? 'ring-2 ring-green-400' : ''}`}
+                  onClick={() => setModalVideo(video)}
+                >
+                  <div className={`relative overflow-hidden rounded-lg shadow-xl ${theme === 'dark' ? 'bg-custom-black' : 'bg-white'}`}> 
+                    <div className="relative w-full h-80 bg-black flex items-center justify-center" style={{backgroundImage: `url(${video.poster})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
+                      <div className="absolute inset-0 bg-black/40"></div>
+                      <Play size={48} className="text-white opacity-80 relative z-10" />
+                      <div className="absolute top-3 right-3 z-10">
+                        <span className={`px-3 py-1 rounded-full text-xs font-medium ${theme === 'dark' ? 'bg-custom-black/90 text-white' : 'bg-white/90 text-black'}`}>{video.duration}</span>
                       </div>
                     </div>
+                    <div className="p-6">
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className={`px-3 py-1 rounded-full text-xs font-medium ${theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-800'}`}>{video.category}</span>
+                        <span className={`text-xs ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>{video.duration}</span>
+                      </div>
+                      <h4 className={`font-semibold mb-2 text-lg line-clamp-2 ${theme === 'dark' ? 'text-white' : 'text-black'}`}>{video.title}</h4>
+                      <p className={`text-sm line-clamp-2 leading-relaxed ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>{video.description}</p>
+                    </div>
                   </div>
-                )
-              })}
+                </div>
+              ))}
+            </div>
+            {/* Third Row - 3 Videos */}
+            <div className="grid md:grid-cols-3 gap-8">
+              {videos.slice(5, 8).map((video) => (
+                <div 
+                  key={video.id + '-' + video.src} 
+                  className={`group cursor-pointer animate-bounce-in transition-all duration-300 hover:scale-105 ${modalVideo && modalVideo.id === video.id && modalVideo.src === video.src ? 'ring-2 ring-green-400' : ''}`}
+                  onClick={() => setModalVideo(video)}
+                >
+                  <div className={`relative overflow-hidden rounded-lg shadow-xl ${theme === 'dark' ? 'bg-custom-black' : 'bg-white'}`}> 
+                    <div className="relative w-full h-80 bg-black flex items-center justify-center" style={{backgroundImage: `url(${video.poster})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
+                      <div className="absolute inset-0 bg-black/40"></div>
+                      <Play size={48} className="text-white opacity-80 relative z-10" />
+                      <div className="absolute top-3 right-3 z-10">
+                        <span className={`px-3 py-1 rounded-full text-xs font-medium ${theme === 'dark' ? 'bg-custom-black/90 text-white' : 'bg-white/90 text-black'}`}>{video.duration}</span>
+                      </div>
+                    </div>
+                    <div className="p-6">
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className={`px-3 py-1 rounded-full text-xs font-medium ${theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-800'}`}>{video.category}</span>
+                        <span className={`text-xs ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>{video.duration}</span>
+                      </div>
+                      <h4 className={`font-semibold mb-2 text-lg line-clamp-2 ${theme === 'dark' ? 'text-white' : 'text-black'}`}>{video.title}</h4>
+                      <p className={`text-sm line-clamp-2 leading-relaxed ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>{video.description}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -825,7 +831,7 @@ we always appreciate the experience during the time served.</p>
           <p className={`text-xl text-center mb-12 ${theme === 'dark' ? 'text-gray-200' : 'text-gray-700'}`}>Ready to put your brand on the next level? we are here to help.</p>
           
           <form 
-            action="https://formspree.io/f/xpzgwqjq" 
+            action="https://formspree.io/f/mzzgnjoj" 
             method="POST" 
             className={`p-8 rounded-lg border shadow-xl mb-8 ${theme === 'dark' ? 'bg-custom-black border-white' : 'bg-white border-gray-200'}`}
             onSubmit={(e) => {
@@ -856,6 +862,17 @@ we always appreciate the experience during the time served.</p>
                   placeholder="Your email address" 
                 />
               </div>
+              <div className="mt-6">
+              <label htmlFor="phone" className={`block mb-2 ${theme === 'dark' ? 'text-white' : 'text-black'}`}>Phone Number</label>
+              <input 
+                type="tel" 
+                id="phone" 
+                name="phone"
+                required
+                className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-300 ${theme === 'dark' ? 'bg-custom-black text-white border-white' : 'bg-white text-black border-gray-300'}`} 
+                placeholder="Your phone number" 
+              />
+            </div>
             </div>
             <div className="mt-6">
               <label htmlFor="subject" className={`block mb-2 ${theme === 'dark' ? 'text-white' : 'text-black'}`}>Subject</label>
@@ -910,6 +927,33 @@ we always appreciate the experience during the time served.</p>
           </div>
         </div>
       </section>
+
+      {/* Modal for video playback */}
+      {modalVideo && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90">
+          <button
+            className="absolute top-8 right-8 text-white bg-black/60 rounded-full p-3 hover:bg-black/80 transition"
+            onClick={() => setModalVideo(null)}
+            aria-label="Close video modal"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          <div className="w-full max-w-3xl p-4">
+            <video
+              src={modalVideo.src}
+              controls
+              autoPlay
+              poster={modalVideo.poster}
+              className="w-full h-[60vh] object-contain rounded-lg bg-black"
+            />
+            <div className="mt-4 text-center text-white">
+              <h4 className="text-2xl font-bold mb-2">{modalVideo.title}</h4>
+            </div>
+          </div>
+        </div>
+      )}
 
       <Footer />
       <BackToTop />

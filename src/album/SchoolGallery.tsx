@@ -4,17 +4,44 @@ import { Button } from '@/components/ui/button';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
-import img1 from '../assets/school/1.jpg';
-import img2 from '../assets/school/2.jpg';
-import img3 from '../assets/school/3.jpg';
-import img4 from '../assets/school/4.jpg';
-import img5 from '../assets/school/5.jpg';
-import img6 from '../assets/school/6.jpg';
-import img7 from '../assets/school/7.jpg';
-import img8 from '../assets/school/8.jpg';
-import img9 from '../assets/school/9.jpg';
-import img10 from '../assets/school/10.jpg';
-import img11 from '../assets/school/11.jpg';
+import img1 from '../assets/school/gallery/20.jpg';
+import img2 from '../assets/school/gallery/21.jpg';
+import img3 from '../assets/school/gallery/23.jpg';
+import img4 from '../assets/school/gallery/24.jpg';
+import img5 from '../assets/school/gallery/25.jpg';
+import img6 from '../assets/school/gallery/26.jpg';
+import img7 from '../assets/school/gallery/27.jpg';
+import img8 from '../assets/school/gallery/28.jpg';
+import img9 from '../assets/school/gallery/29.jpg';
+import img10 from '../assets/school/gallery/30.jpg';
+import img11 from '../assets/school/gallery/31.jpg';
+import img12 from '../assets/school/gallery/32.jpg';
+import img13 from '../assets/school/gallery/33.jpg';
+import img14 from '../assets/school/gallery/34.jpg';
+import img15 from '../assets/school/gallery/35.jpg';
+import img16 from '../assets/school/gallery/36.jpg';
+import img17 from '../assets/school/gallery/37.jpg';
+import img18 from '../assets/school/gallery/38.jpg';
+import img53 from '../assets/school/gallery/53.jpg';
+import img54 from '../assets/school/gallery/54.jpg';
+import img55 from '../assets/school/gallery/55.jpg';
+import img56 from '../assets/school/gallery/56.jpg';
+import img57 from '../assets/school/gallery/57.jpg';
+import img58 from '../assets/school/gallery/58.jpg';
+import img59 from '../assets/school/gallery/59.jpg';
+import img60 from '../assets/school/gallery/60.jpg';
+import img61 from '../assets/school/gallery/61.jpg';
+import img62 from '../assets/school/gallery/62.jpg';
+import img63 from '../assets/school/gallery/63.jpg';
+import img64 from '../assets/school/gallery/64.jpg';
+import img65 from '../assets/school/gallery/65.jpg';
+import img66 from '../assets/school/gallery/66.jpg';
+import img67 from '../assets/school/gallery/67.jpg';
+
+
+
+
+
 
 const SchoolGallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -33,6 +60,32 @@ const SchoolGallery = () => {
     { id: 9, src: img9, alt: 'School Photo 9', orientation: 'landscape' },
     { id: 10, src: img10, alt: 'School Photo 10', orientation: 'portrait' },
     { id: 11, src: img11, alt: 'School Photo 11', orientation: 'landscape' },
+    { id: 12, src: img12, alt: 'School Photo 2', orientation: 'portrait' },
+    { id: 13, src: img13, alt: 'School Photo 3', orientation: 'landscape' },
+    { id: 14, src: img14, alt: 'School Photo 4', orientation: 'portrait' },
+    { id: 15, src: img15, alt: 'School Photo 5', orientation: 'landscape' },
+    { id: 16, src: img16, alt: 'School Photo 6', orientation: 'portrait' },
+    { id: 17, src: img17, alt: 'School Photo 7', orientation: 'landscape' },
+    { id: 18, src: img18, alt: 'School Photo 8', orientation: 'portrait' },
+    { id: 19, src: img53, alt: 'School Photo 9', orientation: 'landscape' },
+    { id: 20, src: img54, alt: 'School Photo 10', orientation: 'portrait' },
+    { id: 21, src: img55, alt: 'School Photo 11', orientation: 'landscape' },
+    { id: 22, src: img56, alt: 'School Photo 12', orientation: 'portrait' },
+    { id: 23, src: img57, alt: 'School Photo 13', orientation: 'landscape' },
+    { id: 24, src: img58, alt: 'School Photo 14', orientation: 'portrait' },
+    { id: 25, src: img59, alt: 'School Photo 15', orientation: 'landscape' },
+    { id: 26, src: img60, alt: 'School Photo 16', orientation: 'portrait' },
+    { id: 27, src: img61, alt: 'School Photo 17', orientation: 'landscape' },
+    { id: 28, src: img62, alt: 'School Photo 18', orientation: 'portrait' },
+    { id: 29, src: img63, alt: 'School Photo 19', orientation: 'landscape' },
+    { id: 30, src: img64, alt: 'School Photo 20', orientation: 'portrait' },
+    { id: 31, src: img65, alt: 'School Photo 21', orientation: 'landscape' },
+    { id: 32, src: img66, alt: 'School Photo 22', orientation: 'portrait' },
+    { id: 33, src: img67, alt: 'School Photo 23', orientation: 'landscape' },
+    
+    
+    
+ 
   ];
 
   // Shuffle images for display

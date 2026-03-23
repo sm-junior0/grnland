@@ -19,6 +19,7 @@ import SchoolGallery from "./album/SchoolGallery";
 import BehindTheScenesGallery from "./album/BehindTheScenesGallery";
 import Loader from "@/components/Loader";
 
+
 const queryClient = new QueryClient();
 
 const App = () => {

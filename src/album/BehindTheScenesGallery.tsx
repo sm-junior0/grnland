@@ -5,17 +5,42 @@ import { useTheme } from '@/contexts/ThemeContext';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import Navbar from '@/components/Navbar';
 
-import img1 from '../assets/school/1.jpg';
-import img2 from '../assets/school/2.jpg';
-import img3 from '../assets/school/3.jpg';
-import img4 from '../assets/school/4.jpg';
-import img5 from '../assets/school/5.jpg';
-import img6 from '../assets/school/6.jpg';
-import img7 from '../assets/school/7.jpg';
-import img8 from '../assets/school/8.jpg';
-import img9 from '../assets/school/9.jpg';
-import img10 from '../assets/school/10.jpg';
-import img11 from '../assets/school/11.jpg';
+import img1 from '../assets/school/gallery/1.jpg';
+import img2 from '../assets/school/gallery/2.jpg';
+import img3 from '../assets/school/gallery/3.jpg';
+import img4 from '../assets/school/gallery/4.jpg';
+import img5 from '../assets/school/gallery/5.jpg';
+import img6 from '../assets/school/gallery/6.jpg';
+import img7 from '../assets/school/gallery/7.jpg';
+import img8 from '../assets/school/gallery/8.jpg';
+import img9 from '../assets/school/gallery/9.jpg';
+import img10 from '../assets/school/gallery/10.jpg';
+import img11 from '../assets/school/gallery/11.jpg';
+import img12 from '../assets/school/gallery/12.jpg';
+import img13 from '../assets/school/gallery/13.jpg';
+import img14 from '../assets/school/gallery/14.jpg';
+import img15 from '../assets/school/gallery/15.jpg';
+import img16 from '../assets/school/gallery/16.jpg';
+import img17 from '../assets/school/gallery/17.jpg';
+import img18 from '../assets/school/gallery/18.jpg';
+import img19 from '../assets/school/gallery/19.jpg';
+import img39 from '../assets/school/gallery/39.jpg';
+import img40 from '../assets/school/gallery/40.jpg';
+import img41 from '../assets/school/gallery/41.jpg';
+import img42 from '../assets/school/gallery/42.jpg';
+import img43 from '../assets/school/gallery/43.jpg';
+import img44 from '../assets/school/gallery/44.jpg';
+import img45 from '../assets/school/gallery/45.jpg';
+import img46 from '../assets/school/gallery/46.jpg';
+import img47 from '../assets/school/gallery/47.jpg';
+import img48 from '../assets/school/gallery/48.jpg';
+import img49 from '../assets/school/gallery/49.jpg';
+import img50 from '../assets/school/gallery/50.jpg';
+import img51 from '../assets/school/gallery/51.jpg';
+import img52 from '../assets/school/gallery/52.jpg';
+import img53 from '../assets/school/gallery/53.jpg';
+
+
 
 const BehindTheScenesGallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -32,8 +57,31 @@ const BehindTheScenesGallery = () => {
     { id: 7, src: img7, alt: 'Behind the Scenes 7', orientation: 'landscape' },
     { id: 8, src: img8, alt: 'Behind the Scenes 8', orientation: 'portrait' },
     { id: 9, src: img9, alt: 'Behind the Scenes 9', orientation: 'landscape' },
-    { id: 10, src: img10, alt: 'Behind the Scenes 10', orientation: 'portrait' },
-    { id: 11, src: img11, alt: 'Behind the Scenes 11', orientation: 'landscape' },
+    { id: 10, src: img11, alt: 'Behind the Scenes 10', orientation: 'portrait' },
+    { id: 11, src: img12, alt: 'Behind the Scenes 11', orientation: 'landscape' },
+    { id: 12, src: img13, alt: 'Behind the Scenes 3', orientation: 'landscape' },
+    { id: 14, src: img14, alt: 'Behind the Scenes 4', orientation: 'portrait' },
+    { id: 15, src: img15, alt: 'Behind the Scenes 5', orientation: 'landscape' },
+    { id: 16, src: img16, alt: 'Behind the Scenes 6', orientation: 'portrait' },
+    { id: 17, src: img17, alt: 'Behind the Scenes 7', orientation: 'landscape' },
+    { id: 18, src: img18, alt: 'Behind the Scenes 8', orientation: 'portrait' },
+    { id: 19, src: img19, alt: 'Behind the Scenes 9', orientation: 'landscape' },
+    { id: 20, src: img10, alt: 'Behind the Scenes 10', orientation: 'portrait' },
+    { id: 21, src: img39, alt: 'Behind the Scenes 39', orientation: 'landscape' },
+    { id: 22, src: img40, alt: 'Behind the Scenes 40', orientation: 'portrait' },
+    { id: 23, src: img41, alt: 'Behind the Scenes 41', orientation: 'landscape' },
+    { id: 24, src: img42, alt: 'Behind the Scenes 42', orientation: 'portrait' },
+    { id: 25, src: img43, alt: 'Behind the Scenes 43', orientation: 'landscape' },
+    { id: 26, src: img44, alt: 'Behind the Scenes 44', orientation: 'portrait' },
+    { id: 27, src: img45, alt: 'Behind the Scenes 45', orientation: 'landscape' },
+    { id: 28, src: img46, alt: 'Behind the Scenes 46', orientation: 'portrait' },
+    { id: 29, src: img47, alt: 'Behind the Scenes 47', orientation: 'landscape' },
+    { id: 30, src: img48, alt: 'Behind the Scenes 48', orientation: 'portrait' },
+    { id: 31, src: img49, alt: 'Behind the Scenes 49', orientation: 'landscape' },
+    { id: 32, src: img50, alt: 'Behind the Scenes 50', orientation: 'portrait' },
+    { id: 33, src: img51, alt: 'Behind the Scenes 51', orientation: 'landscape' },
+    { id: 34, src: img52, alt: 'Behind the Scenes 52', orientation: 'portrait' },
+    
   ];
 
   // Shuffle images for display

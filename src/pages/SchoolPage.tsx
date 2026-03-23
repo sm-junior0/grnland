@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -35,9 +35,11 @@ import {
   CheckCircle,
 } from "lucide-react"
 import schoolImg1 from "../assets/school/1.jpg"
+import schoolImg01 from "../assets/school/gallery/1.jpg"
+import schoolImg02 from "../assets/school/gallery/18.jpg"
 import schoolImg2 from "../assets/school/2.jpg"
 import schoolImg3 from "../assets/school/3.jpg"
-import schoolImg4 from "../assets/school/4.jpg"
+import schoolImg4 from "../assets/school/4.jpg" 
 import schoolImg5 from "../assets/school/5.jpg"
 import schoolImg6 from "../assets/school/6.jpg"
 import schoolImg7 from "../assets/school/7.jpg"
@@ -50,7 +52,28 @@ import CEO from "../assets/team/DeusC.png"
 import testimonial1 from '../assets/testimonials/1.mp4'
 import testimonial2 from '../assets/testimonials/2.mp4'
 import testimonial3 from '../assets/testimonials/3.mp4'
-import testimonial4 from '../assets/testimonials/4.mp4'
+import abdul from '../assets/testimonials/abdul.png'
+import aimee from '../assets/testimonials/aimee.png'
+import david from '../assets/testimonials/david.png'
+
+import heroImg1 from '../assets/school/hero/1.jpg'
+import heroImg2 from '../assets/school/hero/2.jpg'
+import heroImg3 from '../assets/school/hero/3.jpg'
+import heroImg4 from '../assets/school/hero/4.jpg'
+import heroImg5 from '../assets/school/hero/5.jpg'
+import heroImg6 from '../assets/school/hero/6.jpg'
+
+type TestimonialItem = {
+  name: string
+  program: string
+  quote: string
+  videoUrl: string
+  thumbnail: string
+  bio: string
+  works: string[]
+  youtubeLinks: Array<{ title: string; url: string }>
+}
+
 
 
 const SchoolPage = () => {
@@ -59,20 +82,16 @@ const SchoolPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null)
+  const [selectedStudentProfile, setSelectedStudentProfile] = useState<TestimonialItem | null>(null)
 
   // Carousel state
   const schoolImages = [
-    schoolImg1,
-    schoolImg2,
-    schoolImg3,
-    schoolImg4,
-    schoolImg5,
-    schoolImg6,
-    schoolImg7,
-    schoolImg8,
-    schoolImg9,
-    schoolImg10,
-    schoolImg11,
+    heroImg1,
+    heroImg2,
+    heroImg3,
+    heroImg4,
+    heroImg5,
+    heroImg6,
   ]
   const [currentSlide, setCurrentSlide] = useState(0)
 
@@ -109,6 +128,77 @@ const SchoolPage = () => {
     { label: "Academic", href: "#study-organization" },
     { label: "Admissions", href: "#admissions" },
     { label: "Contact", href: "#contact" },
+  ]
+
+  const [studentCount, setStudentCount] = useState(0);
+  const counterRef = useRef(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    function handleScroll() {
+      if (!counterRef.current || hasAnimated) return;
+      const rect = counterRef.current.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom >= 0) {
+        setHasAnimated(true);
+        let start = 0;
+        const end = 200;
+        const duration = 9500;
+        const stepTime = Math.max(Math.floor(duration / end), 10);
+        const counter = setInterval(() => {
+          start += 4;
+          if (start >= end) {
+            setStudentCount(end);
+            clearInterval(counter);
+          } else {
+            setStudentCount(start);
+          }
+        }, stepTime);
+      }
+    }
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [hasAnimated]);
+
+  const testimonials: TestimonialItem[] = [
+    {
+      name: "NGIRINCUTI ABDULILAHI",
+      program: "Filmmaking Graduate",
+      quote: "Greenland transformed my creative vision into professional skills",
+      videoUrl: testimonial1,
+      thumbnail: abdul,
+      bio: "Abdulilahi built confidence in directing and cinematography through practice-based projects at Greenland.",
+      works: ["Campus documentary short", "Commercial product ad", "Final-year narrative short film"],
+      youtubeLinks: [
+        { title: "Directing Showcase", url: "https://www.youtube.com/" },
+        { title: "Cinematography Reel", url: "https://www.youtube.com/" },
+      ],
+    },
+    {
+      name: "Rukundo Aimee",
+      program: "Graphic Design Graduate",
+      quote: "The hands-on approach made all the difference in my career",
+      videoUrl: testimonial3,
+      thumbnail: aimee,
+      bio: "Aimee developed a strong visual design process from concept development to final digital assets.",
+      works: ["Brand identity package", "Poster design collection", "Social media content campaign"],
+      youtubeLinks: [
+        { title: "Design Process Talk", url: "https://www.youtube.com/" },
+        { title: "Portfolio Walkthrough", url: "https://www.youtube.com/" },
+      ],
+    },
+    {
+      name: "Jean David",
+      program: "Filmmaking Graduate",
+      quote: "I learned from industry professionals and built my portfolio",
+      videoUrl: testimonial2,
+      thumbnail: david,
+      bio: "Jean David specialized in storytelling, editing, and production planning while building his professional showreel.",
+      works: ["Music video production", "Behind-the-scenes mini-series", "Client promo video edit"],
+      youtubeLinks: [
+        { title: "Editing Reel", url: "https://www.youtube.com/" },
+        { title: "Production Breakdown", url: "https://www.youtube.com/" },
+      ],
+    },
   ]
 
   return (
@@ -371,7 +461,7 @@ const SchoolPage = () => {
             >
               <div className="relative h-64 w-full mb-6 rounded-2xl overflow-hidden">
                 <img
-                  src={schoolImg1 || "/placeholder.svg"}
+                  src={schoolImg01 || "/placeholder.svg"}
                   alt="Gallery at School"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
@@ -392,7 +482,7 @@ const SchoolPage = () => {
             >
               <div className="relative h-64 w-full mb-6 rounded-2xl overflow-hidden">
                 <img
-                  src={schoolImg2 || "/placeholder.svg"}
+                  src={schoolImg02 || "/placeholder.svg"}
                   alt="Behind the Scenes"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
@@ -954,104 +1044,73 @@ const SchoolPage = () => {
               `}</style>
 
               {/* Video Testimonial Cards */}
-              {[
-                {
-                  name: "Sarah Uwimana",
-                  program: "Filmmaking Graduate",
-                  quote: "Greenland transformed my creative vision into professional skills",
-                  videoUrl: testimonial1,
-                  thumbnail:
-                    schoolImg1,
-                },
-                {
-                  name: "Jean Baptiste",
-                  program: "Graphic Design Graduate",
-                  quote: "The hands-on approach made all the difference in my career",
-                  videoUrl: testimonial2,
-                  thumbnail:
-                  schoolImg2,
-                },
-                {
-                  name: "Grace Mukamana",
-                  program: "Photography Graduate",
-                  quote: "I learned from industry professionals and built my portfolio",
-                  videoUrl: testimonial3,
-                  thumbnail:
-                  schoolImg4,
-                },
-                {
-                  name: "David Nkurunziza",
-                  program: "Video Production Graduate",
-                  quote: "The practical experience prepared me for real-world projects",
-                  videoUrl: testimonial4,
-                  thumbnail:
-                  schoolImg6,
-                },
-                {
-                  name: "Aline Ingabire",
-                  program: "Filmmaking Graduate",
-                  quote: "Small class sizes meant personalized attention and mentorship",
-                  videoUrl: testimonial4,
-                  thumbnail: 
-                  schoolImg7,
-                },
-              ].map((testimonial, index) => (
+              {testimonials.map((testimonial, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 w-80 group hover-lift"
+                  className="flex-shrink-0 w-80 md:w-[360px] group"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className="glass-card gradient-border rounded-3xl shadow-2xl overflow-hidden">
+                  <div className="rounded-3xl overflow-hidden bg-white shadow-2xl border border-white/40 transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-[0_30px_60px_-20px_rgba(0,0,0,0.35)]">
                     {/* Video Thumbnail */}
-                    <div className="relative h-48 bg-gradient-to-br from-green-500/20 to-[#D3881B]/20 overflow-hidden">
+                    <div className="relative h-52 overflow-hidden">
                       <img
                         src={testimonial.thumbnail || "/placeholder.svg"}
                         alt={testimonial.name}
-                        className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-all" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                      <div className="absolute top-4 left-4">
+                        <span className="inline-flex items-center rounded-full bg-white/95 px-3 py-1 text-xs font-bold tracking-wide text-green-700 shadow-lg">
+                          Verified Graduate
+                        </span>
+                      </div>
                       <button
                         className="absolute inset-0 flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
                         onClick={() => setSelectedVideo(testimonial.videoUrl)}
                         title="Play video"
                       >
-                        <div className="w-16 h-16 bg-white/95 rounded-full flex items-center justify-center shadow-xl">
-                          <Play className="w-8 h-8 text-green-600 ml-1" />
+                        <div className="w-16 h-16 rounded-full bg-white text-green-600 flex items-center justify-center shadow-xl ring-4 ring-white/30">
+                          <Play className="w-8 h-8 ml-1" />
                         </div>
                       </button>
-                      {/* Decorative corner accent */}
-                      <div
-                        className="absolute top-0 right-0 w-0 h-0 border-l-[40px] border-l-transparent border-t-[40px]"
-                        style={{ borderTopColor: "#D3881B" }}
-                      ></div>
+                      <div className="absolute bottom-4 left-4 right-4">
+                        <p className="text-white/90 text-sm font-semibold">{testimonial.program}</p>
+                      </div>
                     </div>
 
                     {/* Content */}
-                    <div className="p-6">
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="w-12 h-12 rounded-full bg-gradient-to-r from-green-500 to-[#D3881B] flex items-center justify-center shadow-lg">
-                          <span className="text-white font-bold text-lg">{testimonial.name.charAt(0)}</span>
+                    <div className="p-6 bg-gradient-to-b from-white to-green-50/40">
+                      <div className="flex items-center justify-between gap-3 mb-4">
+                        <div className="min-w-0">
+                          <h4 className="font-extrabold text-gray-900 text-lg leading-tight truncate">{testimonial.name}</h4>
+                          <p className="text-sm text-gray-600 mt-1">Alumni testimonial</p>
                         </div>
-                        <div>
-                          <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
-                          <p className="text-sm text-[#D3881B] font-semibold">{testimonial.program}</p>
+                        <div className="flex items-center gap-1 text-[#D3881B]">
+                          {[...Array(5)].map((_, i) => (
+                            <Star key={i} className="w-4 h-4 fill-current" />
+                          ))}
                         </div>
                       </div>
 
-                      <blockquote className="text-gray-700 italic mb-4 relative">
-                        <span className="text-4xl absolute -top-2 -left-2 opacity-20 text-[#D3881B]">"</span>
-                        <p className="relative z-10 font-medium">{testimonial.quote}</p>
+                      <blockquote className="mb-5 rounded-2xl border border-orange-100 bg-gradient-to-r from-orange-50 to-green-50 p-4">
+                        <p className="text-gray-700 italic font-medium leading-relaxed">"{testimonial.quote}"</p>
                       </blockquote>
 
-                      <div className="flex items-center justify-between">
-                        <div className="flex gap-1">
-                          {[...Array(5)].map((_, i) => (
-                            <Star key={i} className="w-4 h-4 fill-current text-[#D3881B]" />
-                          ))}
-                        </div>
+                      <div className="grid grid-cols-2 gap-3">
                         <Button
                           size="sm"
-                          className="bg-gradient-to-r from-green-500 to-[#D3881B] text-white font-semibold hover:shadow-lg hover:scale-105 transition-all"
+                          variant="outline"
+                          className="h-10 border-green-300 bg-white text-green-700 font-semibold hover:bg-green-50"
+                          onClick={() => {
+                            setSelectedVideo(null)
+                            setSelectedStudentProfile(testimonial)
+                          }}
+                        >
+                          Portfolio
+                        </Button>
+                        <Button
+                          size="sm"
+                          className="h-10 bg-gradient-to-r from-green-500 to-[#D3881B] text-white font-semibold shadow-md hover:shadow-xl transition-all"
                           onClick={() => setSelectedVideo(testimonial.videoUrl)}
                         >
                           Watch Story
@@ -1103,6 +1162,65 @@ const SchoolPage = () => {
               <p className="text-gray-700">
                 Watch how our graduates transformed their passion into successful careers.
               </p>
+            </div>
+          </div>
+        </div>
+      )}
+      {selectedStudentProfile && (
+        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="glass-card rounded-3xl overflow-hidden max-w-3xl w-full max-h-[90vh] relative">
+            <button
+              title="close student profile"
+              onClick={() => setSelectedStudentProfile(null)}
+              className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center text-white transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </button>
+            <div className="overflow-y-auto max-h-[90vh]">
+              <div className="grid md:grid-cols-2 gap-0">
+                <div className="relative bg-gradient-to-br from-green-100 to-orange-100">
+                  <img
+                    src={selectedStudentProfile.thumbnail || "/placeholder.svg"}
+                    alt={selectedStudentProfile.name}
+                    className="w-full h-full object-cover min-h-80"
+                  />
+                </div>
+                <div className="p-6 md:p-8">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-1">{selectedStudentProfile.name}</h3>
+                  <p className="text-[#D3881B] font-semibold mb-4">{selectedStudentProfile.program}</p>
+                  <p className="text-gray-700 mb-6">{selectedStudentProfile.bio}</p>
+
+                  <div className="mb-6">
+                    <h4 className="font-bold text-gray-900 mb-3">Student Works</h4>
+                    <ul className="space-y-2">
+                      {selectedStudentProfile.works.map((work, idx) => (
+                        <li key={idx} className="text-gray-700 flex items-start gap-2">
+                          <span className="mt-2 w-2 h-2 rounded-full bg-gradient-to-r from-green-500 to-[#D3881B]" />
+                          <span>{work}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-3">YouTube Links</h4>
+                    <div className="space-y-2">
+                      {selectedStudentProfile.youtubeLinks.map((item, idx) => (
+                        <a
+                          key={idx}
+                          href={item.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-between rounded-xl border border-green-200 bg-white/70 px-4 py-3 text-green-700 hover:bg-green-50 transition-colors"
+                        >
+                          <span className="font-medium">{item.title}</span>
+                          <ArrowRight className="w-4 h-4" />
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1199,6 +1317,19 @@ const SchoolPage = () => {
           </div>
         </div>
       </section>
+            {/* Student Count Section */}
+            <section
+        ref={counterRef}
+        className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-green-100 via-orange-100 to-green-100 flex flex-col items-center justify-center text-center animate-fade-in"
+      >
+        <div className="max-w-2xl mx-auto">
+          <h2 className="text-5xl md:text-7xl font-extrabold text-green-700 mb-4 flex items-center justify-center">
+            <span className="inline-block animate-bounce">{studentCount}+</span>
+          </h2>
+          <p className="text-2xl md:text-3xl font-semibold text-gray-800 mb-2">Graduates and Counting</p>
+          <p className="text-lg text-gray-600">Over 200 students have successfully completed their journey at Greenland Film and Television School, launching creative careers in media and production.</p>
+        </div>
+      </section>
       {/* Contact Section */}
       <section
         id="contact"
@@ -1278,7 +1409,7 @@ const SchoolPage = () => {
                 <CardContent className="p-10">
                   <h3 className="text-3xl font-bold text-gray-900 mb-8">Send us a Message</h3>
                   <form
-                    action="https://formspree.io/f/xpzgwqjq"
+                    action="https://formspree.io/f/xyzjrnld"
                     method="POST"
                     className="space-y-6"
                     onSubmit={(e) => {
@@ -1316,6 +1447,16 @@ const SchoolPage = () => {
                         required
                         className="w-full px-6 py-4 bg-white border-2 border-green-200 rounded-2xl text-gray-900 placeholder-gray-500 focus:outline-none focus:border-green-500 focus:ring-4 focus:ring-green-100 transition-all shadow-lg"
                         placeholder="your.email@example.com"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-bold text-gray-700 mb-3">Phone Number</label>
+                      <input
+                        type="tel"
+                        name="phone"
+                        required
+                        className="w-full px-6 py-4 bg-white border-2 border-green-200 rounded-2xl text-gray-900 placeholder-gray-500 focus:outline-none focus:border-green-500 focus:ring-4 focus:ring-green-100 transition-all shadow-lg"
+                        placeholder="Your phone number"
                       />
                     </div>
                     <div>
@@ -1441,6 +1582,7 @@ const SchoolPage = () => {
           </div>
         </div>
       </footer>
+
     </div>
   )
 }
