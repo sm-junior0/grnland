@@ -33,6 +33,7 @@ import {
   Eye,
   Briefcase,
   CheckCircle,
+  Scissors,
 } from "lucide-react"
 import schoolImg1 from "../assets/school/1.jpg"
 import schoolImg01 from "../assets/school/gallery/1.jpg"
@@ -55,6 +56,7 @@ import testimonial3 from '../assets/testimonials/3.mp4'
 import abdul from '../assets/testimonials/abdul.png'
 import aimee from '../assets/testimonials/aimee.png'
 import david from '../assets/testimonials/david.png'
+import { StudentPortfolioModal } from '@/components/StudentPortifolioModal'
 
 import heroImg1 from '../assets/school/hero/1.jpg'
 import heroImg2 from '../assets/school/hero/2.jpg'
@@ -179,7 +181,7 @@ const SchoolPage = () => {
       quote: "The hands-on approach made all the difference in my career",
       videoUrl: testimonial3,
       thumbnail: aimee,
-      bio: "Aimee developed a strong visual design process from concept development to final digital assets.",
+      bio: "Aimee developed a strong visual design process from concept development to final digital assets Aimee developed a strong visual design process from concept development to final digital assets.",
       works: ["Brand identity package", "Poster design collection", "Social media content campaign"],
       youtubeLinks: [
         { title: "Design Process Talk", url: "https://www.youtube.com/" },
@@ -1166,65 +1168,11 @@ const SchoolPage = () => {
           </div>
         </div>
       )}
-      {selectedStudentProfile && (
-        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <div className="glass-card rounded-3xl overflow-hidden max-w-3xl w-full max-h-[90vh] relative">
-            <button
-              title="close student profile"
-              onClick={() => setSelectedStudentProfile(null)}
-              className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center text-white transition-colors"
-            >
-              <X className="w-5 h-5" />
-            </button>
-            <div className="overflow-y-auto max-h-[90vh]">
-              <div className="grid md:grid-cols-2 gap-0">
-                <div className="relative bg-gradient-to-br from-green-100 to-orange-100">
-                  <img
-                    src={selectedStudentProfile.thumbnail || "/placeholder.svg"}
-                    alt={selectedStudentProfile.name}
-                    className="w-full h-full object-cover min-h-80"
-                  />
-                </div>
-                <div className="p-6 md:p-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-1">{selectedStudentProfile.name}</h3>
-                  <p className="text-[#D3881B] font-semibold mb-4">{selectedStudentProfile.program}</p>
-                  <p className="text-gray-700 mb-6">{selectedStudentProfile.bio}</p>
-
-                  <div className="mb-6">
-                    <h4 className="font-bold text-gray-900 mb-3">Student Works</h4>
-                    <ul className="space-y-2">
-                      {selectedStudentProfile.works.map((work, idx) => (
-                        <li key={idx} className="text-gray-700 flex items-start gap-2">
-                          <span className="mt-2 w-2 h-2 rounded-full bg-gradient-to-r from-green-500 to-[#D3881B]" />
-                          <span>{work}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h4 className="font-bold text-gray-900 mb-3">YouTube Links</h4>
-                    <div className="space-y-2">
-                      {selectedStudentProfile.youtubeLinks.map((item, idx) => (
-                        <a
-                          key={idx}
-                          href={item.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center justify-between rounded-xl border border-green-200 bg-white/70 px-4 py-3 text-green-700 hover:bg-green-50 transition-colors"
-                        >
-                          <span className="font-medium">{item.title}</span>
-                          <ArrowRight className="w-4 h-4" />
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      <StudentPortfolioModal
+        isOpen={!!selectedStudentProfile}
+        onClose={() => setSelectedStudentProfile(null)}
+        student={selectedStudentProfile}
+      />
       {/* Admissions Section */}
       <section
         id="admissions"
