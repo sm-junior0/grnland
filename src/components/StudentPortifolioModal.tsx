@@ -35,12 +35,44 @@ export function StudentPortfolioModal({ isOpen, onClose, student }: StudentPortf
   const [hoveredRating, setHoveredRating] = useState(0)
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null)
 
-  const portfolioItems = student.works.map((work, index) => ({
-    id: index + 1,
-    title: work,
-    description: student.quote,
-    image: student.thumbnail
-  }))
+  const portfolioItems = [
+    {
+      id: 1,
+      title: student.works[0] || 'Project 1',
+      description: student.quote,
+      image: student.thumbnail
+    },
+    {
+      id: 2,
+      title: student.works[1] || 'Project 2',
+      description: student.quote,
+      image: student.thumbnail
+    },
+    {
+      id: 3,
+      title: student.works[2] || 'Project 3',
+      description: student.quote,
+      image: student.thumbnail
+    },
+    {
+      id: 4,
+      title: student.works[0] ? `${student.works[0]} Extended` : 'Project 4',
+      description: student.quote,
+      image: student.thumbnail
+    },
+    {
+      id: 5,
+      title: student.works[1] ? `${student.works[1]} Pro` : 'Project 5',
+      description: student.quote,
+      image: student.thumbnail
+    },
+    {
+      id: 6,
+      title: student.works[2] ? `${student.works[2]} Advanced` : 'Project 6',
+      description: student.quote,
+      image: student.thumbnail
+    }
+  ]
 
   const services = [
     { icon: Video, title: 'Video Editing', description: 'Professional editing' },
@@ -76,7 +108,11 @@ export function StudentPortfolioModal({ isOpen, onClose, student }: StudentPortf
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <div>
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                  <span className="text-gray-900">{student?.name}</span><br />Professional<br />
+                  Next Level<br />
+                  <span className="text-gray-900">{student?.program.replace(' Graduate', '')}</span><br />
+                  <span className="bg-gradient-to-r from-green-600 to-[#D3881B] bg-clip-text text-transparent">
+                    {student?.name}
+                  </span>
                 </h1>
                 <p className="text-xl sm:text-2xl text-gray-700 mb-6 font-medium">
                   {student?.program}
