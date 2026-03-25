@@ -68,6 +68,7 @@ import heroImg6 from '../assets/school/hero/6.jpg'
 type TestimonialItem = {
   name: string
   program: string
+  title: string
   quote: string
   videoUrl: string
   thumbnail: string
@@ -165,6 +166,7 @@ const SchoolPage = () => {
     {
       name: "NGIRINCUTI ABDULILAHI",
       program: "Filmmaking Graduate",
+      title: "Filmmaker",
       quote: "Greenland transformed my creative vision into professional skills",
       videoUrl: testimonial1,
       thumbnail: abdul,
@@ -178,6 +180,7 @@ const SchoolPage = () => {
     {
       name: "Rukundo Aimee",
       program: "Graphic Design Graduate",
+      title: "Graphic Designer",
       quote: "The hands-on approach made all the difference in my career",
       videoUrl: testimonial3,
       thumbnail: aimee,
@@ -191,6 +194,7 @@ const SchoolPage = () => {
     {
       name: "Jean David",
       program: "Filmmaking Graduate",
+      title: "Filmmaker",
       quote: "I learned from industry professionals and built my portfolio",
       videoUrl: testimonial2,
       thumbnail: david,

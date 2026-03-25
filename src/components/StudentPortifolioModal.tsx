@@ -14,6 +14,7 @@ import heroImg6 from '../assets/school/hero/6.jpg'
 type TestimonialItem = {
   name: string
   program: string
+  title: string
   quote: string
   videoUrl: string
   thumbnail: string
@@ -107,17 +108,13 @@ export function StudentPortfolioModal({ isOpen, onClose, student }: StudentPortf
           <div className="px-6 sm:px-8 lg:px-12 py-12">
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <div>
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                  Next Level<br />
-                  <span className="text-gray-900">{student?.program.replace(' Graduate', '')}</span><br />
-                  <span className="bg-gradient-to-r from-green-600 to-[#D3881B] bg-clip-text text-transparent">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight flex flex-col gap-4">
+                  <span className="bg-gray-900 bg-clip-text text-transparent">
                     {student?.name}
                   </span>
+                  <span className="text-green-600 text-xl font-semibold">{student?.title}</span><br />
                 </h1>
-                <p className="text-xl sm:text-2xl text-gray-700 mb-6 font-medium">
-                  {student?.program}
-                </p>
-                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                <div className="flex items-center sm:items-start gap-4 -mt-3.5">
                   <Button 
                     className="bg-gradient-to-r from-green-500 to-[#D3881B] hover:from-green-600 hover:to-[#D3881B] text-white font-semibold px-8 py-3 rounded-full shadow-lg"
                     onClick={() => {
