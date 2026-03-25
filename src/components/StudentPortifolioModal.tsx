@@ -4,6 +4,13 @@ import { Button } from '@/components/ui/button'
 import { Play, Video, Camera, Users, Shield, X, Star } from 'lucide-react'
 import { useState } from 'react'
 
+import heroImg1 from '../assets/school/hero/1.jpg'
+import heroImg2 from '../assets/school/hero/2.jpg'
+import heroImg3 from '../assets/school/hero/3.jpg'
+import heroImg4 from '../assets/school/hero/4.jpg'
+import heroImg5 from '../assets/school/hero/5.jpg'
+import heroImg6 from '../assets/school/hero/6.jpg'
+
 type TestimonialItem = {
   name: string
   program: string
@@ -64,25 +71,15 @@ export function StudentPortfolioModal({ isOpen, onClose, student }: StudentPortf
         
         {/* Scrollable Content */}
         <div className="overflow-y-auto overflow-x-hidden max-h-[90vh] scrollbar-hide">
-          {/* <div className="relative bg-gradient-to-r from-green-50 to-orange-50 px-6 sm:px-8 lg:px-12 py-8">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-[#D3881B] rounded-lg"></div>
-              <span className="text-gray-900 font-bold text-xl">Student Portfolio</span>
-            </div>
-          </div> */}
-
           {/* Hero Section */}
           <div className="px-6 sm:px-8 lg:px-12 py-12">
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <div>
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                  Next Level<br />Amazing<br />
-                  <span className="bg-gradient-to-r from-green-600 to-[#D3881B] bg-clip-text text-transparent">
-                    {student?.program.split(' ')[0] || 'Videographer'}
-                  </span>
+                  <span className="text-gray-900">{student?.name}</span><br />Professional<br />
                 </h1>
                 <p className="text-xl sm:text-2xl text-gray-700 mb-6 font-medium">
-                  {student?.name}
+                  {student?.program}
                 </p>
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                   <Button 
@@ -218,6 +215,64 @@ export function StudentPortfolioModal({ isOpen, onClose, student }: StudentPortf
                   </div>
                 </div>
               ))}
+            </div>
+            
+            {/* Professional Practice Section */}
+            <div className="px-6 sm:px-8 lg:px-12 py-12">
+              <h1 className="text-3xl text-center sm:text-4xl font-bold mb-8 text-gray-900">
+                {student?.name}<br />In Action
+              </h1>
+              <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 sm:gap-6 space-y-4 sm:space-y-6">
+                {/* Masonry layout with student thumbnail and professional images */}
+                <div className="relative group rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 break-inside-avoid">
+                  <img
+                    src={heroImg1}
+                    alt={`${student?.name} professional work`}
+                    className="w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div className="relative group rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 break-inside-avoid">
+                  <img
+                    src={heroImg2}
+                    alt={`${student?.name} professional setup`}
+                    className="w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div className="relative group rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 break-inside-avoid">
+                  <img
+                    src={heroImg3}
+                    alt={`${student?.name} professional environment`}
+                    className="w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div className="relative group rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 break-inside-avoid">
+                  <img
+                    src={heroImg4}
+                    alt={`${student?.name} working professionally`}
+                    className="w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div className="relative group rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 break-inside-avoid">
+                  <img
+                    src={heroImg5}
+                    alt={`${student?.name} professional project`}
+                    className="w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div className="relative group rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 break-inside-avoid">
+                  <img
+                    src={heroImg6}
+                    alt={`${student?.name} professional equipment`}
+                    className="w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+              </div>
             </div>
             
             {/* YouTube Links Section */}
