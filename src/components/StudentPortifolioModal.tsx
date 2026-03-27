@@ -1,7 +1,7 @@
 
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
-import { Play, Video, Camera, Users, Shield, X, Star } from 'lucide-react'
+import { Play, Video, Camera, Users, Shield, X, Star, Briefcase, ClipboardList, MonitorPlay, Scissors, Presentation } from 'lucide-react'
 import { useState } from 'react'
 
 import heroImg1 from '../assets/school/hero/1.jpg'
@@ -134,7 +134,9 @@ export function StudentPortfolioModal({ isOpen, onClose, student }: StudentPortf
                   >
                     <Play className="w-5 h-5" />
                   </Button>
+                  
                 </div>
+                
               </div>
               <div className="relative h-64 sm:h-80 lg:h-96">
                 <img
@@ -146,22 +148,25 @@ export function StudentPortfolioModal({ isOpen, onClose, student }: StudentPortf
             </div>
           </div>
 
-          {/* Services Section */}
-          <div className="flex flex-col lg:flex-row justify-center items-center gap-8 lg:gap-20 px-6 sm:px-8 lg:px-12 py-12 bg-gray-50">
-            <div className="text-sm text-gray-600 text-center lg:text-left">
-              Supporting Digital Business<br />
-              Branding Agencies<br />
-              Private Documentaries
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-6">
-              {services.map((service, idx) => {
-                const Icon = service.icon
+          <div className='bg-gray-50 pb-12'>
+            <h2 className="text-3xl text-center sm:text-4xl font-bold mb-8 text-gray-900 pt-12">Modules</h2>
+            <div className="grid grid-cols-2 lg:grid-cols-5 gap-8 px-6 sm:px-8 lg:px-12">
+              {[
+                { icon: Briefcase, title: 'Media Entrepreneurship' },
+                { icon: ClipboardList, title: 'Video Pre-production' },
+                { icon: Video, title: 'Video Production' },
+                { icon: Scissors, title: 'Video Post-production' },
+                { icon: MonitorPlay, title: 'Visual Management' }
+              ].map((module, idx) => {
+                const Icon = module.icon
                 return (
-                  <div key={idx} className="flex flex-col items-center text-center px-4 sm:px-6 lg:px-10">
-                    <div className="flex justify-center">
-                      <Icon className="w-10 h-10 sm:w-12 sm:h-12 text-green-600" />
+                  <div key={idx} className="flex flex-col items-center text-center space-y-4 group">
+                    <div className="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center border border-gray-100 group-hover:bg-green-600 transition-all duration-300">
+                      <Icon className="w-6 h-6 text-green-600 group-hover:text-white transition-colors" />
                     </div>
-                    <h3 className="font-semibold text-sm sm:text-base mb-1 text-gray-900">{service.title}</h3>
+                    <h3 className="text-xs font-bold text-gray-700 uppercase tracking-wider leading-snug">
+                      {module.title}
+                    </h3>
                   </div>
                 )
               })}
@@ -252,8 +257,8 @@ export function StudentPortfolioModal({ isOpen, onClose, student }: StudentPortf
             
             {/* Professional Practice Section */}
             <div className="px-6 sm:px-8 lg:px-12 py-12">
-              <h1 className="text-3xl text-center sm:text-4xl font-bold mb-8 text-gray-900">
-                {student?.name}<br />In Action
+              <h1 className="text-3xl text-center sm:text-4xl font-bold mb-8 text-gray-900 uppercase">
+                Activities
               </h1>
               <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 sm:gap-6 space-y-4 sm:space-y-6">
                 {/* Masonry layout with student thumbnail and professional images */}

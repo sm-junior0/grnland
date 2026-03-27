@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
+import { useNavigate } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -34,6 +35,8 @@ import {
   Briefcase,
   CheckCircle,
   Scissors,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react"
 import schoolImg1 from "../assets/school/1.jpg"
 import schoolImg01 from "../assets/school/gallery/1.jpg"
@@ -58,6 +61,7 @@ import aimee from '../assets/testimonials/aimee.png'
 import david from '../assets/testimonials/david.png'
 import { StudentPortfolioModal } from '@/components/StudentPortifolioModal'
 
+
 import heroImg1 from '../assets/school/hero/1.jpg'
 import heroImg2 from '../assets/school/hero/2.jpg'
 import heroImg3 from '../assets/school/hero/3.jpg'
@@ -80,6 +84,7 @@ type TestimonialItem = {
 
 
 const SchoolPage = () => {
+  const navigate = useNavigate()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("home")
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -128,6 +133,7 @@ const SchoolPage = () => {
     { label: "About", href: "#about" },
     { label: "Activities", href: "#activities" },
     { label: "Programs", href: "#programs" },
+    { label: "Portfolios", href: "/portfolios" },
     { label: "Academic", href: "#study-organization" },
     { label: "Admissions", href: "#admissions" },
     { label: "Contact", href: "#contact" },
@@ -222,7 +228,7 @@ const SchoolPage = () => {
         .hover-scale { transition: transform 0.3s ease; }
         .hover-scale:hover { transform: scale(1.05); }
         .glass-card { 
-          background: rgba(255, 255, 255, 0.95); 
+          background: rgba(255, 255, 255, 1); 
           backdrop-filter: blur(20px); 
           border: 1px solid rgba(255, 255, 255, 0.2);
           box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -237,8 +243,8 @@ const SchoolPage = () => {
       <nav className="fixed top-0 left-0 right-0 z-50 glass-card border-b border-green-100 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
-            <div className="flex items-center space-x-3">
-              <img src={logo || "/placeholder.svg"} alt="Greenland School Logo" className="h-20 w-auto" />
+            <div className="flex items-center mr-16">
+              <img src={logo || "/placeholder.svg"} alt="Greenland School Logo" className="h-16 w-auto object-contain" />
             </div>
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-8">
@@ -246,9 +252,21 @@ const SchoolPage = () => {
                 <a
                   key={item.label}
                   href={item.href}
-                  className={`relative px-3 py-2 text-sm font-medium transition-all duration-300 hover-scale ${
+                  className={`relative px-3 py-2 text-sm font-semibold transition-all duration-300 hover-scale ${
                     activeSection === item.href.slice(1) ? "text-green-600" : "text-gray-700 hover:text-green-600"
                   }`}
+                  onClick={(e) => {
+                    if (item.href.startsWith("/")) {
+                      e.preventDefault()
+                      navigate(item.href)
+                    } else {
+                      e.preventDefault()
+                      const element = document.getElementById(item.href.substring(1))
+                      if (element) {
+                        element.scrollIntoView({ behavior: "smooth" })
+                      }
+                    }
+                  }}
                 >
                   {item.label}
                   {activeSection === item.href.slice(1) && (
@@ -274,14 +292,23 @@ const SchoolPage = () => {
           <div className="lg:hidden glass-card border-t border-green-100">
             <div className="px-4 py-6 space-y-4">
               {navItems.map((item) => (
-                <a
+                <button
                   key={item.label}
-                  href={item.href}
-                  className="block py-2 text-gray-700 hover:text-green-600 transition-colors hover:translate-x-2 duration-300"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => {
+                    if (item.href.startsWith("/")) {
+                      navigate(item.href)
+                    } else {
+                      const element = document.getElementById(item.href.substring(1))
+                      if (element) {
+                        element.scrollIntoView({ behavior: "smooth" })
+                      }
+                    }
+                    setIsMenuOpen(false)
+                  }}
+                  className="block w-full text-left py-2 text-gray-700 hover:text-green-600 transition-colors hover:translate-x-2 duration-300"
                 >
                   {item.label}
-                </a>
+                </button>
               ))}
               <Button
                 onClick={() => (window.location.href = "#contact")}
@@ -1008,14 +1035,12 @@ const SchoolPage = () => {
             </div>
           </div>
         </div>
-      </section>
-      {/* Testimonials Section */}
+        {/* Testimonials Section
       <section
         id="testimonials"
         className="py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
         style={{ background: "linear-gradient(135deg, #22c55e 0%, #D3881B 50%, #22c55e 100%)" }}
       >
-        {/* Decorative background elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 left-10 w-32 h-32 rounded-full" style={{ backgroundColor: "#D3881B" }}></div>
           <div className="absolute bottom-20 right-20 w-24 h-24 rounded-full bg-white"></div>
@@ -1039,7 +1064,6 @@ const SchoolPage = () => {
             </p>
           </div>
 
-          {/* Horizontal Scrolling Video Container */}
           <div className="relative">
             <div
               className="flex gap-8 overflow-x-auto pb-6 scrollbar-hide"
@@ -1049,7 +1073,6 @@ const SchoolPage = () => {
                 .scrollbar-hide::-webkit-scrollbar { display: none; }
               `}</style>
 
-              {/* Video Testimonial Cards */}
               {testimonials.map((testimonial, index) => (
                 <div
                   key={index}
@@ -1057,7 +1080,6 @@ const SchoolPage = () => {
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div className="rounded-3xl overflow-hidden bg-white shadow-2xl border border-white/40 transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-[0_30px_60px_-20px_rgba(0,0,0,0.35)]">
-                    {/* Video Thumbnail */}
                     <div className="relative h-52 overflow-hidden">
                       <img
                         src={testimonial.thumbnail || "/placeholder.svg"}
@@ -1084,7 +1106,6 @@ const SchoolPage = () => {
                       </div>
                     </div>
 
-                    {/* Content */}
                     <div className="p-6 bg-gradient-to-b from-white to-green-50/40">
                       <div className="flex items-center justify-between gap-3 mb-4">
                         <div className="min-w-0">
@@ -1128,7 +1149,6 @@ const SchoolPage = () => {
               ))}
             </div>
 
-            {/* Scroll Indicators */}
             <div className="flex justify-center mt-8 gap-2">
               {[...Array(5)].map((_, index) => (
                 <div
@@ -1138,8 +1158,85 @@ const SchoolPage = () => {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+      */}
+    </section>
 
- 
+      {/* Student Portfolio Section (Creative Showcase) */}
+      <section className="relative bg-gradient-to-br from-green-50 via-white to-orange-50 py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Background Decorative Elements */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-green-500/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#D3881B]/5 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/2" />
+
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-16 relative z-10">
+          {/* Left Column: Text */}
+          <div className="lg:w-1/2 space-y-10 fade-in-up">
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-[2px] bg-green-600" />
+                <span className="text-green-600 font-bold tracking-[0.3em] text-sm uppercase">GRADUATE PORTFOLIOS</span>
+              </div>
+              <h2 className="text-6xl md:text-8xl font-serif font-light leading-none tracking-tight text-gray-900">
+                CREATIVE <br /> 
+                <span className="text-[#D3881B] italic">SHOWCASE</span>
+              </h2>
+            </div>
+            
+            <p className="text-gray-600 text-lg leading-relaxed max-w-lg font-normal">
+              Explore the creative journey of our graduates. From conceptualization to final production, 
+              see how our students master the art of visual storytelling and commercial impact.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-6 pt-4">
+              <Button
+                onClick={() => navigate("/portfolios")}
+                className="bg-gradient-to-r from-green-500 via-[#D3881B] to-green-500 text-white font-bold px-10 py-7 text-lg shadow-[0_10px_20px_-5px_rgba(34,197,94,0.4)] hover-scale border-0 rounded-2xl"
+              >
+                Explore Portfolios
+                <ArrowRight className="w-6 h-6 ml-2" />
+              </Button>
+            </div>
+          </div>
+
+          {/* Right Column: Video Cards (Phones) */}
+          <div className="lg:w-1/2 flex flex-row justify-center lg:justify-end gap-6 md:gap-12 pt-12 lg:pt-0 font-medium">
+            {/* Phone Card 1 */}
+            <div className="relative w-56 md:w-72 aspect-[9/18] rounded-[3.5rem] border-[12px] border-gray-800 overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] hover-lift group ring-1 ring-green-600/20">
+              <img src={abdul} alt="Student Portfolio 1" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent flex items-center justify-center opacity-100 group-hover:bg-gray-900/40 transition-all">
+                 <button 
+                  onClick={() => setSelectedVideo(testimonial1)} 
+                  className="w-20 h-20 rounded-full bg-gradient-to-br from-green-500 to-[#D3881B] text-white flex items-center justify-center shadow-2xl hover:scale-110 transition-transform ring-4 ring-white/20"
+                >
+                  <Play className="w-10 h-10 ml-1 fill-current" />
+                </button>
+              </div>
+              <div className="absolute bottom-8 left-0 right-0 text-center">
+                <span className="text-xs font-bold tracking-widest text-white uppercase">Abdulilah's Reel</span>
+              </div>
+              {/* Notch */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-gray-800 rounded-b-3xl" />
+            </div>
+
+            {/* Phone Card 2 */}
+            <div className="relative w-56 md:w-72 aspect-[9/18] rounded-[3.5rem] border-[12px] border-gray-800 overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] hover-lift group lg:translate-y-20 translate-y-10 ring-1 ring-[#D3881B]/20">
+              <img src={aimee} alt="Student Portfolio 2" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent flex items-center justify-center opacity-100 group-hover:bg-gray-900/40 transition-all">
+                <button 
+                  onClick={() => setSelectedVideo(testimonial3)} 
+                  className="w-20 h-20 rounded-full bg-gradient-to-br from-[#D3881B] to-green-500 text-white flex items-center justify-center shadow-2xl hover:scale-110 transition-transform ring-4 ring-white/20"
+                >
+                  <Play className="w-10 h-10 ml-1 fill-current" />
+                </button>
+              </div>
+              <div className="absolute bottom-8 left-0 right-0 text-center">
+                <span className="text-xs font-bold tracking-widest text-white uppercase">Aimee's Showcase</span>
+              </div>
+              {/* Notch */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-gray-800 rounded-b-3xl" />
+            </div>
+          </div>
         </div>
       </section>
 

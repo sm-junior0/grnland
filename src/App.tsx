@@ -17,6 +17,7 @@ import RealEstatesGallery from "./album/RealEstatesGallery";
 import WildlifeGallery from "./album/WildlifeGallery";
 import SchoolGallery from "./album/SchoolGallery";
 import BehindTheScenesGallery from "./album/BehindTheScenesGallery";
+import PortfoliosPage from "@/pages/PortfoliosPage";
 import Loader from "@/components/Loader";
 
 
@@ -48,6 +49,7 @@ const App = () => {
             <Route path="/gallery/realestates" element={<RealEstatesGallery />} />
             <Route path="/gallery/wildlife" element={<WildlifeGallery />} />
             <Route path="/album/SchoolGallery" element={<SchoolGallery />} />
+            <Route path="/portfolios" element={<PortfoliosPage />} />
             <Route path="/album/BehindTheScenesGallery" element={<BehindTheScenesGallery />} />
           </Routes>
           <Toaster />
