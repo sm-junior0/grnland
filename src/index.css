@@ -76,6 +76,10 @@
     @apply border-border;
   }
 
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+  }
+
   body {
     @apply bg-background text-foreground font-opensans-light;
       font-weight: 100;

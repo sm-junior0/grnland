@@ -18,8 +18,19 @@ type TestimonialItem = {
   quote: string
   videoUrl: string
   thumbnail: string
+  portfolioCardImage?: string
   bio: string
   works: string[]
+  latestWork?: Array<{
+    type: 'photo' | 'video' | 'youtube'
+    url: string
+    title: string
+    description: string
+    videoId?: string
+  }>
+  activities?: string[]
+  phone?: string
+  email?: string
   youtubeLinks: Array<{ title: string; url: string }>
 }
 
@@ -34,45 +45,23 @@ export function StudentPortfolioModal({ isOpen, onClose, student }: StudentPortf
   
   const [rating, setRating] = useState(0)
   const [hoveredRating, setHoveredRating] = useState(0)
-  const [selectedVideo, setSelectedVideo] = useState<string | null>(null)
+  const [selectedVideo, setSelectedVideo] = useState<{ url: string, type: 'video' | 'youtube' } | null>(null)
 
-  const portfolioItems = [
+  const portfolioItems = student.latestWork || [
     {
       id: 1,
+      type: 'photo' as const,
       title: student.works[0] || 'Project 1',
       description: student.quote,
-      image: student.thumbnail
+      url: student.thumbnail
     },
-    {
-      id: 2,
-      title: student.works[1] || 'Project 2',
-      description: student.quote,
-      image: student.thumbnail
-    },
-    {
-      id: 3,
-      title: student.works[2] || 'Project 3',
-      description: student.quote,
-      image: student.thumbnail
-    },
-    {
-      id: 4,
-      title: student.works[0] ? `${student.works[0]} Extended` : 'Project 4',
-      description: student.quote,
-      image: student.thumbnail
-    },
-    {
-      id: 5,
-      title: student.works[1] ? `${student.works[1]} Pro` : 'Project 5',
-      description: student.quote,
-      image: student.thumbnail
-    },
-    {
-      id: 6,
-      title: student.works[2] ? `${student.works[2]} Advanced` : 'Project 6',
-      description: student.quote,
-      image: student.thumbnail
-    }
+    // ... rest of the fallback items if needed, but we'll use latestWork
+  ]
+
+  const displayPortfolioItems = student.latestWork ? student.latestWork : [
+    { type: 'photo' as const, url: student.thumbnail, title: student.works[0] || 'Project 1', description: student.quote },
+    { type: 'photo' as const, url: student.thumbnail, title: student.works[1] || 'Project 2', description: student.quote },
+    { type: 'photo' as const, url: student.thumbnail, title: student.works[2] || 'Project 3', description: student.quote },
   ]
 
   const services = [
@@ -87,8 +76,12 @@ export function StudentPortfolioModal({ isOpen, onClose, student }: StudentPortf
   }
 
   const handlePortfolioItemClick = (item: any) => {
-    // Use the student's video URL when clicking portfolio items
-    setSelectedVideo(student.videoUrl)
+    if (item.type === 'video' || item.type === 'youtube') {
+      setSelectedVideo({ url: item.url, type: item.type })
+    } else {
+      // For photos, maybe open in a light box or just do nothing for now
+      // Since the request was "films its videos", we prioritize video playback
+    }
   }
 
   return (
@@ -109,7 +102,7 @@ export function StudentPortfolioModal({ isOpen, onClose, student }: StudentPortf
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <div>
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight flex flex-col gap-4">
-                  <span className="bg-gray-900 bg-clip-text text-transparent">
+                  <span className="bg-gray-900 bg-clip-text text-transparent text-5xl">
                     {student?.name}
                   </span>
                   <span className="text-green-600 text-xl font-semibold">{student?.title}</span><br />
@@ -126,15 +119,7 @@ export function StudentPortfolioModal({ isOpen, onClose, student }: StudentPortf
                   >
                     Learn More
                   </Button>
-                  <Button 
-                    variant="outline" 
-                    size="icon" 
-                    className="rounded-full border-green-500 text-green-600 hover:bg-green-50 hover:border-green-600 w-12 h-12"
-                    onClick={() => setSelectedVideo(student.videoUrl)}
-                  >
-                    <Play className="w-5 h-5" />
-                  </Button>
-                  
+                                    
                 </div>
                 
               </div>
@@ -177,12 +162,15 @@ export function StudentPortfolioModal({ isOpen, onClose, student }: StudentPortf
           <div id="about-student" className="px-6 sm:px-8 lg:px-12 py-12">
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <div className="relative h-64 sm:h-80 lg:h-96 order-2 lg:order-1">
-                <img
-                  src={student?.thumbnail || 'https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=500&h=400&fit=crop'}
-                  alt="Video editing workspace"
-                  className="w-full h-full object-cover rounded-2xl shadow-xl"
-                />
+                <div className="w-full h-full bg-gray-100 rounded-2xl overflow-hidden shadow-xl border border-gray-100">
+                  <img
+                    src={student.portfolioCardImage || student.thumbnail}
+                    alt={`${student?.name} profile`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
+
               <div className="order-1 lg:order-2">
                 <p className="text-green-600 font-semibold text-sm mb-4">About {student?.name}</p>
                 <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-gray-900">
@@ -194,7 +182,7 @@ export function StudentPortfolioModal({ isOpen, onClose, student }: StudentPortf
                 
                 {/* Contact Information Cards */}
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <div className="flex items-center gap-4 p-2 bg-green-50 rounded-md border border-green-200 flex-1">
+                  <div className="flex items-center gap-4 p-2 bg-green-50 rounded-md border border-green-200 flex-1 w-[50%]">
                     <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-[#D3881B] rounded-full flex items-center justify-center">
                       <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -202,11 +190,11 @@ export function StudentPortfolioModal({ isOpen, onClose, student }: StudentPortf
                     </div>
                     <div>
                       <p className="text-green-700 font-semibold text-xs">Phone</p>
-                      <p className="text-gray-900 font-medium text-sm">+250 788 123 456</p>
+                      <p className="text-gray-900 font-medium text-sm">{student.phone || "+250 788 123 456"}</p>
                     </div>
                   </div>
                   
-                  <div className="flex items-center gap-2 p-3 bg-orange-50 rounded-md border border-orange-200 flex-1">
+                  {/* <div className="flex items-center gap-2 p-3 bg-orange-50 rounded-md border border-orange-200 flex-1">
                     <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-[#D3881B] rounded-full flex items-center justify-center">
                       <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -214,9 +202,9 @@ export function StudentPortfolioModal({ isOpen, onClose, student }: StudentPortf
                     </div>
                     <div>
                       <p className="text-orange-700 font-semibold text-xs">Email</p>
-                      <p className="text-gray-900 font-medium text-sm">{student?.name?.toLowerCase().replace(/\s+/g, '.')}@gmail.com</p>
+                      <p className="text-gray-900 font-medium text-sm">{student.email || `${student?.name?.toLowerCase().replace(/\s+/g, '.')}@gmail.com`}</p>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -227,30 +215,52 @@ export function StudentPortfolioModal({ isOpen, onClose, student }: StudentPortf
             <p className="text-green-600 text-center font-semibold text-sm mb-4">{student?.name}'s Portfolio</p>
             <h2 className="text-3xl text-center sm:text-4xl font-bold mb-8 text-gray-900">Latest Work</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-              {portfolioItems.map((item) => (
+              {displayPortfolioItems.map((item, idx) => (
                 <div 
-                  key={item.id} 
-                  className="relative group cursor-pointer rounded-2xl overflow-hidden h-64 sm:h-72 shadow-lg hover:shadow-xl transition-all duration-300"
+                  key={idx} 
+                  className="relative group cursor-pointer rounded-2xl overflow-hidden h-64 sm:h-72 shadow-lg hover:shadow-xl transition-all duration-300 bg-gray-100"
                   onClick={() => handlePortfolioItemClick(item)}
                 >
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
+                  {item.type === 'video' ? (
+                    <video
+                      src={item.url}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      muted
+                      playsInline
+                      loop
+                      onMouseOver={(e) => e.currentTarget.play()}
+                      onMouseOut={(e) => { e.currentTarget.pause(); e.currentTarget.currentTime = 0; }}
+                    />
+                  ) : item.type === 'youtube' ? (
+                    <img
+                      src={`https://img.youtube.com/vi/${item.videoId}/hqdefault.jpg`}
+                      alt={item.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  ) : (
+                    <img
+                      src={item.url}
+                      alt={item.title}
+                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:from-black/60 transition-all duration-300 flex flex-col justify-end p-6">
                     <h3 className="font-bold text-lg text-white mb-2">{item.title}</h3>
                     <p className="text-gray-300 text-sm">{item.description}</p>
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                      <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center">
-                        <Play className="w-8 h-8 text-white fill-white ml-1" />
+                    {(item.type === 'video' || item.type === 'youtube') && (
+                      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                        <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center">
+                          <Play className="w-8 h-8 text-white fill-white ml-1" />
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </div>
                   {/* Click hint */}
-                  <div className="absolute top-4 right-4 bg-black/60 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
-                    Click to play
-                  </div>
+                  {item.type === 'video' && (
+                    <div className="absolute top-4 right-4 bg-black/60 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                      Click to play
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -260,56 +270,17 @@ export function StudentPortfolioModal({ isOpen, onClose, student }: StudentPortf
               <h1 className="text-3xl text-center sm:text-4xl font-bold mb-8 text-gray-900 uppercase">
                 Activities
               </h1>
-              <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 sm:gap-6 space-y-4 sm:space-y-6">
-                {/* Masonry layout with student thumbnail and professional images */}
-                <div className="relative group rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 break-inside-avoid">
-                  <img
-                    src={heroImg1}
-                    alt={`${student?.name} professional work`}
-                    className="w-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </div>
-                <div className="relative group rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 break-inside-avoid">
-                  <img
-                    src={heroImg2}
-                    alt={`${student?.name} professional setup`}
-                    className="w-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </div>
-                <div className="relative group rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 break-inside-avoid">
-                  <img
-                    src={heroImg3}
-                    alt={`${student?.name} professional environment`}
-                    className="w-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </div>
-                <div className="relative group rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 break-inside-avoid">
-                  <img
-                    src={heroImg4}
-                    alt={`${student?.name} working professionally`}
-                    className="w-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </div>
-                <div className="relative group rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 break-inside-avoid">
-                  <img
-                    src={heroImg5}
-                    alt={`${student?.name} professional project`}
-                    className="w-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </div>
-                <div className="relative group rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 break-inside-avoid">
-                  <img
-                    src={heroImg6}
-                    alt={`${student?.name} professional equipment`}
-                    className="w-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                {(student.activities || [heroImg1, heroImg2, heroImg3, heroImg4, heroImg5, heroImg6]).map((img, idx) => (
+                  <div key={idx} className="relative group rounded-2xl overflow-hidden h-64 sm:h-72 shadow-lg hover:shadow-xl transition-all duration-300">
+                    <img
+                      src={img}
+                      alt={`${student?.name} activity ${idx + 1}`}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
+                ))}
               </div>
             </div>
             
@@ -393,13 +364,22 @@ export function StudentPortfolioModal({ isOpen, onClose, student }: StudentPortf
             >
               <X className="w-6 h-6" />
             </button>
-            <div className="relative rounded-lg overflow-hidden bg-black">
-              <video
-                src={selectedVideo}
-                controls
-                autoPlay
-                className="w-full h-auto max-h-[80vh]"
-              />
+            <div className="relative rounded-lg overflow-hidden bg-black w-full flex justify-center items-center">
+              {selectedVideo.type === 'youtube' ? (
+                <iframe
+                  src={selectedVideo.url}
+                  className="w-full aspect-video"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              ) : (
+                <video
+                  src={selectedVideo.url}
+                  controls
+                  autoPlay
+                  className="w-full h-auto max-h-[80vh]"
+                />
+              )}
             </div>
           </div>
         </div>

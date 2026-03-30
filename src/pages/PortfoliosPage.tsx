@@ -1,8 +1,3 @@
-/**
- * Greenland Portfolios Showcase Page
- * A clean, minimalist display of student work and talent.
- */
-
 import { useState, useMemo, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Search, Filter, Play, Bookmark, User, GraduationCap, ArrowRight, Sparkles, FilterX, Menu, X, Instagram } from 'lucide-react'
@@ -16,9 +11,197 @@ import logo from "../assets/team/schoollogo.png"
 import abdul from '../assets/testimonials/abdul.png'
 import aimee from '../assets/testimonials/aimee.png'
 import david from '../assets/testimonials/david.png'
+import Gisele from '../assets/school/BENIMANA Gisele graphic.jpg'
+import Claudette from '../assets/school/MUHAWENIMANA Claudette video.jpg'
+import Nuriat from '../assets/school/UMWALI Nuriat  videography.jpg'
+import Fridaus from '../assets/school/BIGIRIMANA Fridaus   videography.jpg'
+import Noella from '../assets/school/IMANIRADUKUNDA Noella  video.jpg'
+import Francoise from '../assets/school/MUKANDAYISENGA Francoise video.jpg'
+import Christine from '../assets/school/GISIBIZO Christine video.jpg'
+import Shemusa from '../assets/school/UWASE Shemusa  graphic.jpg'
+import Belyse from '../assets/school/UWASE Belyse graphic.jpg'
+import Olive from '../assets/school/TUYISHIMIRE Olive  video.jpg'
+import Louise from '../assets/school/NYIRABANGENZI Louise  video.jpg'
+import Vialine from '../assets/school/MUSABYEYEZU Vialine  graphic.jpg'
+import Liliane from '../assets/school/MUHAWENIMANA Liliane   videography.jpg'
+import Benitha from '../assets/school/MUKAGIHOZO Benitha    graphic.jpg'
+import Cloudine from '../assets/school/MUSHIMIYIMANA Cloudine    vidography.jpg'
+import Sandra from '../assets/school/BYIRINGIRO Sandra    graphic.jpg'
+import Sandrine from '../assets/school/UWASE Sandrine  graphic.jpg'
+import BelyseI from '../assets/school/IRADUKUNDA Belyse  videography.jpg'
+import Valentine from '../assets/school/IZABERA Valentine  vdeography.jpg'
+import BenithaN from '../assets/school/NIYOGUSHIMWA Benitha       videography.jpg'
+import Aliane from '../assets/school/NIYONIZERA Alianne   graphic.jpg'
+import Aline from '../assets/school/NIYONKURU Aline   graphic.jpg'
+import Aisha from '../assets/school/TETA Aisha Fal-ha   videography.jpg'
+import Charlotte from '../assets/school/UWAMAHIRWE Charlotte      graphic.jpg'
 import testimonial1 from '../assets/testimonials/1.mp4'
 import testimonial2 from '../assets/testimonials/2.mp4'
 import testimonial3 from '../assets/testimonials/3.mp4'
+import videoAll from '../assets/school/all.mp4'
+import videoBelFalMucyo from '../assets/school/bel ,fal ,mucyo .mp4'
+import videoFelBenNur from '../assets/school/fel,ben,nur.mp4'
+import videoIshema from '../assets/school/ishema garage 2 .mp4'
+// import videoAmir from '../assets/school/Amir 250326.mov'
+
+import GiseleWork1 from '../assets/school/gisele1.jpg'
+import GiseleWork2 from '../assets/school/gisele2.jpg'
+import GiseleWork3 from '../assets/school/gisele3.jpg'
+import GiseleWork4 from '../assets/school/gisele4.jpg'
+import GiseleWork5 from '../assets/school/gisele5.jpg'
+import GiseleWork6 from '../assets/school/gisele6.jpg'
+import GiseleWork7 from '../assets/school/gisele7.jpg'
+import GiseleWork8 from '../assets/school/gisele8.jpg'
+import GiseleWork9 from '../assets/school/gisele9.jpg'
+
+import BelyseWork1 from '../assets/school/belyse5.jpg'
+import BelyseWork2 from '../assets/school/belyse2.jpg'
+import BelyseWork3 from '../assets/school/belyse7.jpg'
+import BelyseWork4 from '../assets/school/belyse8.jpg'
+import BelyseWork5 from '../assets/school/belyse9.jpg'
+import BelyseWork6 from '../assets/school/belyse10.jpg'
+
+import ShemusaWork1 from '../assets/school/shemusa2.jpg'
+import ShemusaWork2 from '../assets/school/shemusa3.jpg'
+import ShemusaWork3 from '../assets/school/shemusa4.jpg'
+import ShemusaWork4 from '../assets/school/shemusa6.jpg'
+import ShemusaWork5 from '../assets/school/shemusa8.jpg'
+import ShemusaWork6 from '../assets/school/shemusa9.jpg'
+
+import VialineWork1 from '../assets/school/violine1.jpg'
+import VialineWork2 from '../assets/school/violine2.jpg'
+import VialineWork3 from '../assets/school/violine3.jpg'
+import VialineWork4 from '../assets/school/violine4.jpg'
+
+import AlianeWork1 from '../assets/school/aliane1.jpg'
+import AlianeWork2 from '../assets/school/aliane2.jpg'
+import AlianeWork3 from '../assets/school/aliane7.jpg'
+import AlianeWork4 from '../assets/school/aliane8.jpg'
+import AlianeWork5 from '../assets/school/aliane9.jpg'
+import AlianeWork6 from '../assets/school/aliane10.jpg'
+
+import AlineWork1 from '../assets/school/aline6.jpg'
+import AlineWork2 from '../assets/school/aline3.jpg'
+import AlineWork3 from '../assets/school/aline7.jpg'
+import AlineWork4 from '../assets/school/aline8.jpg'
+import AlineWork5 from '../assets/school/aline9.jpg'
+import AlineWork6 from '../assets/school/aline10.jpg'
+
+import BenithaWork1 from '../assets/school/benitha1.jpg'
+import BenithaWork2 from '../assets/school/benitha6.jpg'
+import BenithaWork3 from '../assets/school/benitha5.jpg'
+import BenithaWork4 from '../assets/school/benitha9.jpg'
+import BenithaWork5 from '../assets/school/benitha11.jpg'
+import BenithaWork6 from '../assets/school/benitha12.jpg'
+
+import CharlotteWork1 from '../assets/school/charlotte3.png'
+import CharlotteWork2 from '../assets/school/charlotte2.jpg'
+import CharlotteWork3 from '../assets/school/charlotte1.jpg'
+import CharlotteWork4 from '../assets/school/charlotte6.jpg'
+import CharlotteWork5 from '../assets/school/charlotte7.jpg'
+import CharlotteWork6 from '../assets/school/charlotte8.jpg'
+
+import SandraWork1 from '../assets/school/sandra1.jpg'
+import SandraWork2 from '../assets/school/sandara9.jpg'
+import SandraWork3 from '../assets/school/sandar3.jpg'
+import SandraWork4 from '../assets/school/sandra10.jpg'
+import SandraWork5 from '../assets/school/sandra6.jpg'
+import SandraWork6 from '../assets/school/sandra8.jpg'
+
+import SandrineWork1 from '../assets/school/sandrine10.jpg'
+import SandrineWork2 from '../assets/school/sandrine9.jpg'
+import SandrineWork3 from '../assets/school/sandrine8.jpg'
+import SandrineWork4 from '../assets/school/sandrine7.jpg'
+import SandrineWork5 from '../assets/school/sandrine6.jpg'
+import SandrineWork6 from '../assets/school/sandrine3.jpg'
+
+// Student Activity Images
+import AlineActivity1 from '../assets/school/student/aline/IMG_1688.JPG.jpeg'
+import AlineActivity2 from '../assets/school/student/aline/IMG_1690.JPG.jpeg'
+import AlineActivity3 from '../assets/school/student/aline/IMG_1696.JPG.jpeg'
+
+import AllianeActivity1 from '../assets/school/student/alliane/DSC01060.jpg'
+import AllianeActivity2 from '../assets/school/student/alliane/DSC01063.jpg'
+
+import BelyseIActivity1 from '../assets/school/student/belyse viddeo/CLSS_3.jpg'
+import BelyseIActivity2 from '../assets/school/student/belyse viddeo/CLSS_4.jpg'
+import BelyseIActivity3 from '../assets/school/student/belyse viddeo/CLSS_6.jpg'
+
+import BenithaNActivity1 from '../assets/school/student/benitha/CLSS_22.jpg'
+import BenithaNActivity2 from '../assets/school/student/benitha/CLSS_26.jpg'
+import BenithaNActivity3 from '../assets/school/student/benitha/_V9A4683.jpg'
+
+import BenithaActivity1 from '../assets/school/student/benitha mukagihozo/clss_14.jpg'
+import BenithaActivity2 from '../assets/school/student/benitha mukagihozo/clss_18.jpg'
+import BenithaActivity3 from '../assets/school/student/benitha mukagihozo/clss_22.jpg'
+
+import CharlotteActivity1 from '../assets/school/student/charlote/DSC01426.jpg'
+import CharlotteActivity2 from '../assets/school/student/charlote/DSC01427.jpg'
+import CharlotteActivity3 from '../assets/school/student/charlote/DSC01429.jpg'
+
+import ChristineActivity1 from '../assets/school/student/christine/IMG_1689.JPG.jpeg'
+import ChristineActivity2 from '../assets/school/student/christine/IMG_1693.JPG.jpeg'
+import ChristineActivity3 from '../assets/school/student/christine/_V9A4669.jpg'
+
+import ClaudetteActivity1 from '../assets/school/student/cloudette/IMG_1692.JPG.jpeg'
+import ClaudetteActivity2 from '../assets/school/student/cloudette/clss_22.jpg'
+
+import FridausActivity1 from '../assets/school/student/fridaus/DSC08173.jpg'
+import FridausActivity2 from '../assets/school/student/fridaus/DSC08604.jpg'
+import FridausActivity3 from '../assets/school/student/fridaus/clss.jpg'
+
+import LilianeActivity1 from '../assets/school/student/lilliane/clss (1).jpg'
+import LilianeActivity2 from '../assets/school/student/lilliane/clss (1).png'
+
+import LouiseActivity1 from '../assets/school/student/louise/_V9A4856.jpg'
+import LouiseActivity2 from '../assets/school/student/louise/_V9A4890.jpg'
+import LouiseActivity3 from '../assets/school/student/louise/clss_7.jpg'
+
+import SandrineActivity1 from '../assets/school/student/sandrinr/_V9A4673.jpg'
+import SandrineActivity2 from '../assets/school/student/sandrinr/clss_18.jpg'
+import SandrineActivity3 from '../assets/school/student/sandrinr/clss_19.jpg'
+
+import NoellaActivity1 from '../assets/school/student/noella/CLSS_41.jpg'
+import NoellaActivity2 from '../assets/school/student/noella/class_5.jpg'
+import NoellaActivity3 from '../assets/school/student/noella/class_7.jpg'
+
+import NuriatActivity1 from '../assets/school/student/nuriat/CLSS_5.jpg'
+import NuriatActivity2 from '../assets/school/student/nuriat/DSC01034.jpg'
+import NuriatActivity3 from '../assets/school/student/nuriat/DSC08173.jpg'
+
+import OliveActivity1 from '../assets/school/student/olive/CLSS_32.jpg'
+import OliveActivity2 from '../assets/school/student/olive/CLSS_33.jpg'
+import OliveActivity3 from '../assets/school/student/olive/clss_10.jpg'
+
+import SandraActivity1 from '../assets/school/student/sandra/DSC08944.jpg'
+import SandraActivity2 from '../assets/school/student/sandra/DSC08945.jpg'
+import SandraActivity3 from '../assets/school/student/sandra/clss_30.jpg'
+
+import ShemusaActivity1 from '../assets/school/student/sheamus/_V9A4675.jpg'
+import ShemusaActivity2 from '../assets/school/student/sheamus/_V9A4676.jpg'
+import ShemusaActivity3 from '../assets/school/student/sheamus/clss_13.jpg'
+
+import AishaActivity1 from '../assets/school/student/teta aisha falha/CLSS_25.jpg'
+import AishaActivity2 from '../assets/school/student/teta aisha falha/_V9A4702.jpg'
+import AishaActivity3 from '../assets/school/student/teta aisha falha/_V9A4835.jpg'
+
+import BelyseActivity1 from '../assets/school/student/uwase belse/DSC09810.jpg'
+import BelyseActivity2 from '../assets/school/student/uwase belse/_V9A4721.jpg'
+
+import ValentineActivity1 from '../assets/school/student/valentine/CLSS.jpg'
+import ValentineActivity2 from '../assets/school/student/valentine/CLSS_38.jpg'
+import ValentineActivity3 from '../assets/school/student/valentine/CLSS_40.jpg'
+
+import VialineActivity1 from '../assets/school/student/vialine/DSC01060.jpg'
+import VialineActivity2 from '../assets/school/student/vialine/DSC01063.jpg'
+import VialineActivity3 from '../assets/school/student/vialine/IMG_1690.JPG.jpeg'
+
+import heroImg1 from '../assets/school/hero/1.jpg'
+import heroImg2 from '../assets/school/hero/2.jpg'
+import heroImg3 from '../assets/school/hero/3.jpg'
+import heroImg4 from '../assets/school/hero/4.jpg'
+import heroImg5 from '../assets/school/hero/5.jpg'
+import heroImg6 from '../assets/school/hero/6.jpg'
 
 type TestimonialItem = {
   name: string
@@ -27,8 +210,19 @@ type TestimonialItem = {
   quote: string
   videoUrl: string
   thumbnail: string
+  portfolioCardImage?: string
   bio: string
   works: string[]
+  latestWork?: Array<{
+    type: 'photo' | 'video' | 'youtube'
+    url: string
+    title: string
+    description: string
+    videoId?: string
+  }>
+  activities?: string[]
+  phone?: string
+  email?: string
   youtubeLinks: Array<{ title: string; url: string }>
   gender: 'male' | 'female'
 }
@@ -60,101 +254,579 @@ const PortfoliosPage = () => {
 
   const students: TestimonialItem[] = [
     {
-      name: "NGIRINCUTI ABDULILAHI",
-      program: "Filmmaking Graduate",
-      title: "Filmmaker & Editor",
-      quote: "Storytelling is the heart of every great film.",
+      name: "BENIMANA Gisele",
+      program: "Graphic Design",
+      title: "Graphic Designer",
+      quote: "Design is thinking made visual",
       videoUrl: testimonial1,
-      thumbnail: abdul,
-      bio: "Abdulilah is a passionate filmmaker with a focus on cinematic storytelling and high-end video production.",
-      works: ["Campus documentary short", "Commercial product ad", "Final-year narrative short film"],
-      youtubeLinks: [{ title: "My Showreel", url: "https://youtube.com" }],
-      gender: 'male'
-    },
-    {
-      name: "Rukundo Aimee",
-      program: "Graphic Design Graduate",
-      title: "Visual Artist",
-      quote: "Design is thinking made visual.",
-      videoUrl: testimonial3,
-      thumbnail: aimee,
-      bio: "Aimee specializes in brand identity and motion graphics, bringing a unique aesthetic to every project.",
-      works: ["Brand Identity X", "Poster Design Y", "App UI Z"],
-      youtubeLinks: [{ title: "Design Portfolio", url: "https://youtube.com" }],
+      thumbnail: Gisele,
+      portfolioCardImage: Gisele,
+      bio: "Gisele developed these skills through intensive, hands-on training at Greenland Film and Television School, gaining practical experience in design tools, branding, and visual communication, and is prepared to deliver professional and innovative design solutions.",
+      works: ["Brand Identity", "Editorial Design", "Web Layouts"],
+      latestWork: [
+        { type: 'photo', url: GiseleWork2, title: "Corporate Identity", description: "Professional business card design for CGO Group." },
+        { type: 'photo', url: GiseleWork4, title: "Recruitment Poster", description: "Company announcement and welcome poster for Media Feathers." },
+        { type: 'photo', url: GiseleWork5, title: "Product Advertisement", description: "Commercial poster for Akarabo Biscuits (Sina Gerard)." },
+        { type: 'photo', url: GiseleWork6, title: "Commercial Brand", description: "Marketing visual variation for Akarabo product line." },
+        { type: 'photo', url: GiseleWork7, title: "Brand Campaign", description: "Visual marketing campaign for Akarabo Biscuits." },
+        { type: 'photo', url: GiseleWork8, title: "Marketing Visual", description: "Commercial advertising poster for SINA GERARD products." },
+      ],
+      activities: [heroImg1, heroImg2, heroImg3],
+      phone: "+250 793 493 759",
+      email: "[EMAIL_ADDRESS]",
+      youtubeLinks: [],
       gender: 'female'
     },
     {
-      name: "Jean David",
-      program: "Filmmaking Graduate",
-      title: "Cinematographer",
-      quote: "Capturing the light, defining the moment.",
+      name: "BIGIRIMANA Fridaus",
+      program: "Videography",
+      title: "Videographer",
+      quote: "Every frame I capture is a story waiting to be felt.",
+      videoUrl: testimonial3,
+      thumbnail: Fridaus,
+      portfolioCardImage: Fridaus,
+      bio: "I am a passionate videography student with a strong interest in cinematic storytelling and visual composition. I focus on capturing emotion through lighting, framing, and camera movement to create compelling visual narratives. My goal is to produce content that not only looks visually appealing but also connects deeply with audiences and leaves a lasting impression.",
+      works: ["Digital Illustration", "Motion Graphics", "UX Design"],
+      latestWork: [
+        { type: 'video', url: videoAll, title: "Latest Work", description: "Vibrant videography showcase" },
+        { type: 'video', url: videoFelBenNur, title: "Narrative Short", description: "Cinematic storytelling project" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/s7iQwZOzWxc?autoplay=1', videoId: 's7iQwZOzWxc', title: "External Masterclass", description: "Professional external feature" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/ABY8QMeg55k?autoplay=1', videoId: 'ABY8QMeg55k', title: "Industry Interview", description: "Professional external feature" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/OOXoZZSjpdo?autoplay=1', videoId: 'OOXoZZSjpdo', title: "Creative Showcase", description: "Professional external feature" },
+        // { type: 'video', url: videoAmir, title: "Amir Project", description: "Latest school project feature" }
+      ],
+      activities: [FridausActivity1, FridausActivity2, FridausActivity3],
+      phone: "+250 793 083 952",
+      email: "aimee.r@example.com",
+      youtubeLinks: [],
+      gender: 'female'
+    },
+    {
+      name: "MUHAWENIMANA Claudette",
+      program: "Videography",
+      title: "Videographer",
+      quote: "I don’t just film moments—I preserve emotions.",
       videoUrl: testimonial2,
-      thumbnail: david,
-      bio: "David is an expert in lighting and camera work, with a keen eye for architectural and landscape cinematography.",
+      thumbnail: Claudette,
+      portfolioCardImage: Claudette,
+      bio: "I am a videography student dedicated to documenting authentic moments and turning them into meaningful visual stories. I enjoy working on real-life content, capturing genuine emotions and experiences. Through my work, I aim to create videos that feel natural, relatable, and emotionally engaging.",
       works: ["Documentary D", "Travel Vlog E", "Wedding Film F"],
-      youtubeLinks: [{ title: "Cinematography Reel", url: "https://youtube.com" }],
-      gender: 'male'
+      latestWork: [
+        { type: 'video', url: videoAll, title: "Latest Work", description: "Vibrant videography showcase" },
+        { type: 'video', url: videoBelFalMucyo, title: "Professional Reel", description: "Portfolio highlights and creative vision" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/s7iQwZOzWxc?autoplay=1', videoId: 's7iQwZOzWxc', title: "External Masterclass", description: "Professional external feature" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/ABY8QMeg55k?autoplay=1', videoId: 'ABY8QMeg55k', title: "Industry Interview", description: "Professional external feature" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/OOXoZZSjpdo?autoplay=1', videoId: 'OOXoZZSjpdo', title: "Creative Showcase", description: "Professional external feature" },
+        // { type: 'video', url: videoAmir, title: "Amir Project", description: "Latest school project feature" }
+      ],
+      activities: [ClaudetteActivity1, ClaudetteActivity2],
+      phone: "+250 782 072 462",
+      email: "david.j@example.com",
+      youtubeLinks: [],
+      gender: 'female'
     },
     {
-      name: "Marie Claire",
-      program: "Graphic Design Graduate",
-      title: "Illustrator",
-      quote: "Every brushstroke tells a story.",
+      name: "MUKANDAYISENGA Francoise",
+      program: "Videography",
+      title: "Videographer",
+      quote: "Through my lens, the ordinary becomes extraordinary.",
       videoUrl: testimonial3,
-      thumbnail: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&h=800&fit=crop",
-      bio: "Marie is a digital illustrator with a passion for character design and children's book illustrations.",
+      thumbnail: Francoise,
+      portfolioCardImage: Francoise,
+      bio: "I am a creative videography student who enjoys experimenting with unique angles, perspectives, and editing styles. I strive to transform simple ideas into visually engaging content that stands out. My work reflects my curiosity and passion for pushing creative boundaries.",
       works: ["Character Design", "Book Illustration", "NFT Art"],
+      latestWork: [
+        { type: 'video', url: videoAll, title: "Latest Work", description: "Vibrant videography showcase" },
+        { type: 'video', url: videoBelFalMucyo, title: "Professional Reel", description: "Portfolio highlights and creative vision" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/s7iQwZOzWxc?autoplay=1', videoId: 's7iQwZOzWxc', title: "External Masterclass", description: "Professional external feature" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/ABY8QMeg55k?autoplay=1', videoId: 'ABY8QMeg55k', title: "Industry Interview", description: "Professional external feature" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/OOXoZZSjpdo?autoplay=1', videoId: 'OOXoZZSjpdo', title: "Creative Showcase", description: "Professional external feature" },
+        // { type: 'video', url: videoAmir, title: "Amir Project", description: "Latest school project feature" }
+      ],
+      activities: [heroImg2, heroImg4, heroImg6],
+      phone: "+250 795 809 415",
+      email: "claire.m@example.com",
       youtubeLinks: [],
       gender: 'female'
     },
     {
-      name: "Eric Munyaneza",
-      program: "Filmmaking Graduate",
-      title: "Director",
-      quote: "Vision is the art of seeing things invisible.",
+      name: "MUSABYEYEZU Vialine",
+      program: "Graphic Design",
+      title: "Graphic Designer",
+      quote: "Creativity is my process, design is my result.",
       videoUrl: testimonial1,
-      thumbnail: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&h=800&fit=crop",
-      bio: "Eric is an aspiring film director with several award-winning short films under his belt.",
+      thumbnail: Vialine,
+      portfolioCardImage: Vialine,
+      bio: "I am a creative designer who enjoys exploring bold ideas and experimenting with different styles. My work reflects my passion for innovation, as I aim to create designs that are unique, eye-catching, and meaningful.",
       works: ["Short Film: The Return", "Documentary: Kigali Streets"],
+      latestWork: [
+         { type: 'photo', url: VialineWork1, title: "Academic Certificate", description: "Professional certification from Greenland Film and Television School." },
+        { type: 'photo', url: VialineWork2, title: "Social Awareness Poster", description: "Campaign poster for the Women Movement training session." },
+        { type: 'photo', url: VialineWork3, title: "Event Poster", description: "Promotional design for community initiatives." },
+        { type: 'photo', url: VialineWork4, title: "Creative Composition", description: "Visual exploration of social themes." },
+      ],
+      activities: [VialineActivity1, VialineActivity2, VialineActivity3],
+      phone: "+250 795 824 579",
+      email: "eric.m@example.com",
       youtubeLinks: [],
-      gender: 'male'
+      gender: 'female'
     },
     {
-      name: "Alice Keza",
-      program: "Photography Graduate",
-      title: "Portrait Photographer",
-      quote: "In a world of pixels, I capture souls.",
+      name: "NYIRABAGENZI Louise",
+      program: "Videography",
+      title: "Videographer",
+      quote: "Light and motion are the language I speak.",
       videoUrl: testimonial2,
-      thumbnail: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&h=800&fit=crop",
-      bio: "Alice specializes in editorial and portrait photography, capturing the essence of her subjects.",
+      thumbnail: Louise,
+      portfolioCardImage: Louise,
+      bio: "I have a strong passion for visual aesthetics, with a focus on lighting, color grading, and smooth motion. I enjoy creating visually striking videos that balance technical precision with artistic expression. I am continuously learning and refining my skills to achieve high-quality results.",
       works: ["Model Portfolio", "Fashion Editorial", "Street Portraits"],
+      latestWork: [
+        { type: 'video', url: videoAll, title: "Latest Work", description: "Vibrant videography showcase" },
+        { type: 'video', url: videoBelFalMucyo, title: "Professional Reel", description: "Portfolio highlights and creative vision" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/s7iQwZOzWxc?autoplay=1', videoId: 's7iQwZOzWxc', title: "External Masterclass", description: "Professional external feature" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/ABY8QMeg55k?autoplay=1', videoId: 'ABY8QMeg55k', title: "Industry Interview", description: "Professional external feature" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/OOXoZZSjpdo?autoplay=1', videoId: 'OOXoZZSjpdo', title: "Creative Showcase", description: "Professional external feature" },
+        // { type: 'video', url: videoAmir, title: "Amir Project", description: "Latest school project feature" }
+      ],
+      activities: [LouiseActivity1, LouiseActivity2, LouiseActivity3],
+      phone: "+250 784 895 455",
+      email: "alice.k@example.com",
       youtubeLinks: [],
       gender: 'female'
     },
     {
-      name: "Kevin Kagabo",
-      program: "Filmmaking Graduate",
-      title: "Sound Engineer",
-      quote: "Sound is 50% of the movie-going experience.",
+      name: "TUYISHIMIRE Olive",
+      program: "Videography",
+      title: "Videographer",
+      quote: "Stories live in motion—I bring them to life.",
       videoUrl: testimonial1,
-      thumbnail: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=800&fit=crop",
-      bio: "Kevin is a sound specialist ensuring high-fidelity audio production for films and commercials.",
+      thumbnail: Olive,
+      portfolioCardImage: Olive,
+      bio: "I am a storytelling-driven videographer who enjoys creating narrative content, including short films and creative projects. My work focuses on building emotional connections through well-structured stories, thoughtful visuals, and engaging pacing.",
       works: ["Sound Score A", "Podcast Edit B"],
-      youtubeLinks: [],
-      gender: 'male'
-    },
-    {
-      name: "Sandra Uwase",
-      program: "Animation Graduate",
-      title: "3D Animator",
-      quote: "Bringing static objects to digital life.",
-      videoUrl: testimonial3,
-      thumbnail: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500&h=800&fit=crop",
-      bio: "Sandra is a 3D artist specializing in character rigging and environmental animation.",
-      works: ["3D Short", "Game Environment", "VFX Reel"],
+      latestWork: [
+        { type: 'video', url: videoAll, title: "Latest Work", description: "Vibrant videography showcase" },
+        { type: 'video', url: videoBelFalMucyo, title: "Professional Reel", description: "Portfolio highlights and creative vision" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/s7iQwZOzWxc?autoplay=1', videoId: 's7iQwZOzWxc', title: "External Masterclass", description: "Professional external feature" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/ABY8QMeg55k?autoplay=1', videoId: 'ABY8QMeg55k', title: "Industry Interview", description: "Professional external feature" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/OOXoZZSjpdo?autoplay=1', videoId: 'OOXoZZSjpdo', title: "Creative Showcase", description: "Professional external feature" },
+        // { type: 'video', url: videoAmir, title: "Amir Project", description: "Latest school project feature" }
+      ],
+      activities: [OliveActivity1, OliveActivity2, OliveActivity3],
+      phone: "+250 791 224 865",
+      email: "kevin.k@example.com",
       youtubeLinks: [],
       gender: 'female'
-    }
+    },
+    {
+      name: "UWASE Belyse",
+      program: "Graphic Design",
+      title: "Graphic Designer",
+      quote: "Simple design, powerful impact.",
+      videoUrl: testimonial3,
+      thumbnail: Belyse,
+      portfolioCardImage: Belyse,
+      bio: "I focus on clean and minimal design, emphasizing clarity and functionality. I believe that simplicity can be powerful, and I aim to create designs that are visually appealing while effectively communicating their purpose.",
+      works: ["3D Short", "Game Environment", "VFX Reel"],
+      latestWork: [
+         { type: 'photo', url: BelyseWork1, title: "Business Branding", description: "Corporate identity design for Hope Designer." },
+        { type: 'photo', url: BelyseWork2, title: "Academic Certificate", description: "Professional certification from Greenland Film and Television School." },
+        { type: 'photo', url: BelyseWork3, title: "Promotional Poster", description: "Creative advertisement design for local services." },
+        { type: 'photo', url: BelyseWork4, title: "Brand Packaging", description: "Visual identity for local product lines." },
+        { type: 'photo', url: BelyseWork5, title: "Product Advertisement", description: "Commercial poster for Akarabo Biscuits." },
+        { type: 'photo', url: BelyseWork6, title: "Social Campaign", description: "Awareness poster for community events." },
+      ],
+      activities: [BelyseActivity1, BelyseActivity2],
+      phone: "+250 796 061 398",
+      email: "sandra.u@example.com",
+      youtubeLinks: [],
+      gender: 'female'
+    },
+    {
+      name: "UWASE Shemusa",
+      program: "Graphic Design",
+      title: "Graphic Designer",
+      quote: "Design is not just seen—it is experienced.",
+      videoUrl: testimonial3,
+      thumbnail: Shemusa,
+      portfolioCardImage: Shemusa,
+      bio: "I am a graphic design student passionate about creating meaningful visual experiences. I focus on using color, typography, and layout effectively to communicate ideas clearly. My goal is to design work that not only looks good but also delivers strong and memorable messages.",
+      works: ["3D Short", "Game Environment", "VFX Reel"],
+      latestWork: [
+         { type: 'photo', url: ShemusaWork1, title: "Academic Certificate", description: "Professional certification from Greenland Film and Television School." },
+        { type: 'photo', url: ShemusaWork2, title: "Professional Certificate", description: "Academic achievement at Greenland Film and Television School." },
+        { type: 'photo', url: ShemusaWork3, title: "Event Poster", description: "Campaign design for the Women Movement training session." },
+        { type: 'photo', url: ShemusaWork4, title: "Social Awareness", description: "Visual campaign for the community movement." },
+        { type: 'photo', url: ShemusaWork5, title: "Creative Poster", description: "Artistic exploration of social issues." },
+        { type: 'photo', url: ShemusaWork6, title: "Marketing Visual", description: "Brand communication for local initiatives." },
+      ],
+      activities: [ShemusaActivity1, ShemusaActivity2, ShemusaActivity3],
+      phone: "+250 795 858 159",
+      email: "sandra.u@example.com",
+      youtubeLinks: [],
+      gender: 'female'
+    },
+    {
+      name: "GISUBIZO Christine",
+      program: "Videography",
+      title: "Videographer",
+      quote: "I chase authenticity in every shot I take.",
+      videoUrl: testimonial3,
+      thumbnail: Christine,
+      portfolioCardImage: Christine,
+      bio: "I am a versatile videography student exploring different styles and formats, from cinematic visuals to digital content creation. I am passionate about improving my technical and creative skills while developing my unique visual identity.",
+      works: ["3D Short", "Game Environment", "VFX Reel"],
+      latestWork: [
+        { type: 'video', url: videoAll, title: "Latest Work", description: "Vibrant videography showcase" },
+        { type: 'video', url: videoFelBenNur, title: "Narrative Short", description: "Cinematic storytelling project" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/s7iQwZOzWxc?autoplay=1', videoId: 's7iQwZOzWxc', title: "External Masterclass", description: "Professional external feature" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/ABY8QMeg55k?autoplay=1', videoId: 'ABY8QMeg55k', title: "Industry Interview", description: "Professional external feature" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/OOXoZZSjpdo?autoplay=1', videoId: 'OOXoZZSjpdo', title: "Creative Showcase", description: "Professional external feature" },
+        // { type: 'video', url: videoAmir, title: "Amir Project", description: "Latest school project feature" }
+      ],
+      activities: [ChristineActivity1, ChristineActivity2, ChristineActivity3],
+      phone: "+250 791 930 166",
+      email: "sandra.u@example.com",
+      youtubeLinks: [],
+      gender: 'female'
+    },
+    {
+      name: "IMANIRADUKUNDA Noella",
+      program: "Videography",
+      title: "Videographer",
+      quote: "Editing is where my vision comes alive",
+      videoUrl: testimonial3,
+      thumbnail: Noella,
+      portfolioCardImage: Noella,
+      bio: "I am particularly interested in post-production, where I bring footage together to create a cohesive and impactful story. I work with editing techniques, sound design, and transitions to produce polished videos that communicate ideas clearly and creatively.",
+      works: ["3D Short", "Game Environment", "VFX Reel"],
+      latestWork: [
+        { type: 'video', url: videoAll, title: "Latest Work", description: "Vibrant videography showcase" },
+        { type: 'video', url: videoFelBenNur, title: "Narrative Short", description: "Cinematic storytelling project" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/s7iQwZOzWxc?autoplay=1', videoId: 's7iQwZOzWxc', title: "External Masterclass", description: "Professional external feature" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/ABY8QMeg55k?autoplay=1', videoId: 'ABY8QMeg55k', title: "Industry Interview", description: "Professional external feature" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/OOXoZZSjpdo?autoplay=1', videoId: 'OOXoZZSjpdo', title: "Creative Showcase", description: "Professional external feature" },
+        // { type: 'video', url: videoAmir, title: "Amir Project", description: "Latest school project feature" }
+      ],
+      activities: [NoellaActivity1, NoellaActivity2, NoellaActivity3],
+      phone: "+250 788 575 943",
+      email: "sandra.u@example.com",
+      youtubeLinks: [],
+      gender: 'female'
+    },
+    {
+      name: "UMWALI Nuriat",
+      program: "Videography",
+      title: "Videographer",
+      quote: "A camera is my tool, creativity is my power.",
+      videoUrl: testimonial3,
+      thumbnail: Nuriat,
+      portfolioCardImage: Nuriat,
+      bio: "I am a versatile videography student exploring different styles and formats, from cinematic visuals to digital content creation. I am passionate about improving my technical and creative skills while developing my unique visual identity.",
+      works: ["3D Short", "Game Environment", "VFX Reel"],
+      latestWork: [
+        { type: 'video', url: videoAll, title: "Latest Work", description: "Vibrant videography showcase" },
+        { type: 'video', url: videoFelBenNur, title: "Narrative Short", description: "Cinematic storytelling project" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/s7iQwZOzWxc?autoplay=1', videoId: 's7iQwZOzWxc', title: "External Masterclass", description: "Professional external feature" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/ABY8QMeg55k?autoplay=1', videoId: 'ABY8QMeg55k', title: "Industry Interview", description: "Professional external feature" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/OOXoZZSjpdo?autoplay=1', videoId: 'OOXoZZSjpdo', title: "Creative Showcase", description: "Professional external feature" },
+        // { type: 'video', url: videoAmir, title: "Amir Project", description: "Latest school project feature" }
+      ],
+      activities: [NuriatActivity1, NuriatActivity2, NuriatActivity3],
+      phone: "+250 790 250 533",
+      email: "sandra.u@example.com",
+      youtubeLinks: [],
+      gender: 'female'
+    },
+    {
+      name: "MUHAWENIMANA Liliane",
+      program: "Videography",
+      title: "Videographer",
+      quote: "I capture moments today that will speak forever",
+      videoUrl: testimonial3,
+      thumbnail: Liliane,
+      portfolioCardImage: Liliane,
+      bio: "I am a videography student with a strong passion for capturing timeless moments through film. I focus on storytelling that preserves memories while maintaining a cinematic and visually appealing style.",
+      works: ["3D Short", "Game Environment", "VFX Reel"],
+      latestWork: [
+        { type: 'video', url: videoAll, title: "Latest Work", description: "Vibrant videography showcase" },
+        { type: 'video', url: videoFelBenNur, title: "Narrative Short", description: "Cinematic storytelling project" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/s7iQwZOzWxc?autoplay=1', videoId: 's7iQwZOzWxc', title: "External Masterclass", description: "Professional external feature" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/ABY8QMeg55k?autoplay=1', videoId: 'ABY8QMeg55k', title: "Industry Interview", description: "Professional external feature" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/OOXoZZSjpdo?autoplay=1', videoId: 'OOXoZZSjpdo', title: "Creative Showcase", description: "Professional external feature" },
+        // { type: 'video', url: videoAmir, title: "Amir Project", description: "Latest school project feature" }
+      ],
+      activities: [LilianeActivity1, LilianeActivity2],
+      phone: "+250 791 408 012",
+      email: "sandra.u@example.com",
+      youtubeLinks: [],
+      gender: 'female'
+    },
+    {
+      name: "MUKAGIHOZO Benitha",
+      program: "Graphic Design",
+      title: "Graphic Designer",
+      quote: "Design gives ideas a visual voice.",
+      videoUrl: testimonial3,
+      thumbnail: Benitha,
+      portfolioCardImage: Benitha,
+      bio: "I am a graphic design student who focuses on transforming ideas into clear and expressive visuals. My work combines creativity with strategy to communicate messages effectively.",
+      works: ["3D Short", "Game Environment", "VFX Reel"],
+      latestWork: [
+         { type: 'photo', url: BenithaWork1, title: "Product Advertisement", description: "Visual campaign for Akarabo Biscuits." },
+        { type: 'photo', url: BenithaWork2, title: "Commercial Brand", description: "Marketing poster for SINA GERARD products." },
+        { type: 'photo', url: BenithaWork3, title: "Marketing Visual", description: "Brand communication for local food products." },
+        { type: 'photo', url: BenithaWork4, title: "Creative Poster", description: "Visual exploration of brand themes." },
+        { type: 'photo', url: BenithaWork5, title: "Social Awareness", description: "Community project design and awareness." },
+        { type: 'photo', url: BenithaWork6, title: "Academic Project", description: "Design exploration for school assignments." },
+      ],
+      activities: [BenithaActivity1, BenithaActivity2, BenithaActivity3],
+      phone: "+250 793 367 889",
+      email: "sandra.u@example.com",
+      youtubeLinks: [],
+      gender: 'female'
+    },
+    {
+      name: "MUSHIMIYIMANA Cloudine",
+      program: "Videography",
+      title: "Videographer",
+      quote: "Visual storytelling is where creativity meets reality.",
+      videoUrl: testimonial3,
+      thumbnail: Cloudine,
+      portfolioCardImage: Cloudine,
+      bio: "I am a creative videographer who blends real-life moments with artistic expression. I focus on storytelling through carefully planned shots, smooth transitions, and engaging visuals.",
+      works: ["3D Short", "Game Environment", "VFX Reel"],
+      latestWork: [
+        { type: 'video', url: videoAll, title: "Latest Work", description: "Vibrant videography showcase" },
+        { type: 'video', url: videoIshema, title: "Professional Reel", description: "Portfolio highlights and creative vision" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/s7iQwZOzWxc?autoplay=1', videoId: 's7iQwZOzWxc', title: "External Masterclass", description: "Professional external feature" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/ABY8QMeg55k?autoplay=1', videoId: 'ABY8QMeg55k', title: "Industry Interview", description: "Professional external feature" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/OOXoZZSjpdo?autoplay=1', videoId: 'OOXoZZSjpdo', title: "Creative Showcase", description: "Professional external feature" },
+        // { type: 'video', url: videoAmir, title: "Amir Project", description: "Latest school project feature" }
+      ],
+      activities: [heroImg2, heroImg4, heroImg6],
+      phone: "+250 729 388 373",
+      email: "sandra.u@example.com",
+      youtubeLinks: [],
+      gender: 'female'
+    },
+    {
+      name: "BYIRINGIRO Sandra",
+      program: "Graphic Design",
+      title: "Graphic Designer",
+      quote: "My lens focuses on stories that matter.",
+      videoUrl: testimonial3,
+      thumbnail: Sandra,
+      portfolioCardImage: Sandra,
+      bio: "I am a purposeful designer who approaches each project with clarity and intention, creating designs that are both visually appealing and functionally effective.",
+      works: ["3D Short", "Game Environment", "VFX Reel"],
+      latestWork: [
+         { type: 'photo', url: SandraWork1, title: "Product Advertisement", description: "Commercial poster for Akarabo Biscuits." },
+        { type: 'photo', url: SandraWork2, title: "Marketing Visual", description: "Visual identity campaign for SINA GERARD." },
+        { type: 'photo', url: SandraWork3, title: "Commercial Brand", description: "Promotional artwork for local bakery products." },
+        { type: 'photo', url: SandraWork4, title: "Brand Campaign", description: "Marketing visual for Akarabo product line." },
+        { type: 'photo', url: SandraWork5, title: "Creative Poster", description: "Artistic brand representation." },
+        { type: 'photo', url: SandraWork6, title: "Design Study", description: "Visual exploration of commercial themes." },
+      ],
+      activities: [SandraActivity1, SandraActivity2, SandraActivity3],
+      phone: "+250 794 286 887",
+      email: "sandra.u@example.com",
+      youtubeLinks: [],
+      gender: 'female'
+    },
+    {
+      name: "IRADUKUNDA Belyse",
+      program: "Videography",
+      title: "Videographer",
+      quote: "I create stories that move—not just visually, but emotionally.",
+      videoUrl: testimonial3,
+      thumbnail: Belyse,
+      portfolioCardImage: Belyse,
+      bio: "I am a videography student dedicated to producing emotionally engaging content. I focus on narrative structure and pacing to ensure each project connects meaningfully with its audience.",
+      works: ["3D Short", "Game Environment", "VFX Reel"],
+      latestWork: [
+        { type: 'video', url: videoAll, title: "Latest Work", description: "Vibrant videography showcase" },
+        { type: 'video', url: videoBelFalMucyo, title: "Professional Reel", description: "Portfolio highlights and creative vision" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/s7iQwZOzWxc?autoplay=1', videoId: 's7iQwZOzWxc', title: "External Masterclass", description: "Professional external feature" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/ABY8QMeg55k?autoplay=1', videoId: 'ABY8QMeg55k', title: "Industry Interview", description: "Professional external feature" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/OOXoZZSjpdo?autoplay=1', videoId: 'OOXoZZSjpdo', title: "Creative Showcase", description: "Professional external feature" },
+        // { type: 'video', url: videoAmir, title: "Amir Project", description: "Latest school project feature" }
+      ],
+      activities: [BelyseIActivity1, BelyseIActivity2, BelyseIActivity3],
+      phone: "+250 790 040 273",
+      email: "sandra.u@example.com",
+      youtubeLinks: [],
+      gender: 'female'
+    },
+    {
+      name: "IZABERA Valentine",
+      program: "Videography",
+      title: "Videographer",
+      quote: "Behind every video is a vision waiting to be seen.",
+      videoUrl: testimonial3,
+      thumbnail: Valentine,
+      portfolioCardImage: Valentine,
+      bio: "I am passionate about turning creative ideas into visual reality. I enjoy working on diverse projects, using both technical and creative skills to bring unique concepts to life.",
+      works: ["3D Short", "Game Environment", "VFX Reel"],
+      latestWork: [
+        { type: 'video', url: videoAll, title: "Latest Work", description: "Vibrant videography showcase" },
+        { type: 'video', url: videoIshema, title: "Professional Reel", description: "Portfolio highlights and creative vision" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/s7iQwZOzWxc?autoplay=1', videoId: 's7iQwZOzWxc', title: "External Masterclass", description: "Professional external feature" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/ABY8QMeg55k?autoplay=1', videoId: 'ABY8QMeg55k', title: "Industry Interview", description: "Professional external feature" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/OOXoZZSjpdo?autoplay=1', videoId: 'OOXoZZSjpdo', title: "Creative Showcase", description: "Professional external feature" },
+        // { type: 'video', url: videoAmir, title: "Amir Project", description: "Latest school project feature" }
+      ],
+      activities: [ValentineActivity1, ValentineActivity2, ValentineActivity3],
+      phone: "+250 793 856 245",
+      email: "sandra.u@example.com",
+      youtubeLinks: [],
+      gender: 'female'
+    },
+    {
+      name: "NIYOGUSHIMWA Benitha",
+      program: "Videography",
+      title: "Videographer",
+      quote: "I see stories where others see moments.",
+      videoUrl: testimonial3,
+      thumbnail: BenithaN,
+      portfolioCardImage: BenithaN,
+      bio: "I am a detail-oriented videographer who specializes in capturing subtle moments and transforming them into impactful visual stories through creativity and precision.",
+      works: ["3D Short", "Game Environment", "VFX Reel"],
+      latestWork: [
+        { type: 'video', url: videoAll, title: "Latest Work", description: "Vibrant videography showcase" },
+        { type: 'video', url: videoFelBenNur, title: "Narrative Short", description: "Cinematic storytelling project" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/s7iQwZOzWxc?autoplay=1', videoId: 's7iQwZOzWxc', title: "External Masterclass", description: "Professional external feature" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/ABY8QMeg55k?autoplay=1', videoId: 'ABY8QMeg55k', title: "Industry Interview", description: "Professional external feature" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/OOXoZZSjpdo?autoplay=1', videoId: 'OOXoZZSjpdo', title: "Creative Showcase", description: "Professional external feature" },
+        // { type: 'video', url: videoAmir, title: "Amir Project", description: "Latest school project feature" }
+      ],
+      activities: [BenithaNActivity1, BenithaNActivity2, BenithaNActivity3],
+      phone: "+250 783 450 415",
+      email: "sandra.u@example.com",
+      youtubeLinks: [],
+      gender: 'female'
+    },
+    {
+      name: "NIYONIZERA Alianne",
+      program: "Graphic Design",
+      title: "Graphic Designer",
+      quote: "I design with meaning, not just aesthetics.",
+      videoUrl: testimonial3,
+      thumbnail: Aliane,
+      portfolioCardImage: Aliane,
+      bio: "I am passionate about creating designs that go beyond appearance, focusing on meaning and communication while applying strong design principles.",
+      works: ["3D Short", "Game Environment", "VFX Reel"],
+      latestWork: [
+         { type: 'photo', url: AlianeWork1, title: "Brand Innovation", description: "Commercial poster design for Flexisync solutions." },
+        { type: 'photo', url: AlianeWork2, title: "Creative Composition", description: "Visual storytelling for modern brand identity." },
+        { type: 'photo', url: AlianeWork3, title: "Corporate Poster", description: "Professional brand representation visual." },
+        { type: 'photo', url: AlianeWork4, title: "Marketing Visual", description: "Identity design for technology-driven results." },
+        { type: 'photo', url: AlianeWork5, title: "Social Campaign", description: "Community awareness and engagement design." },
+        { type: 'photo', url: AlianeWork6, title: "Academic Project", description: "Visual design exploration for graduation portfolio." },
+      ],
+      activities: [AllianeActivity1, AllianeActivity2],
+      phone: "+250 732 898 237",
+      email: "sandra.u@example.com",
+      youtubeLinks: [],
+      gender: 'female'
+    },
+     {
+      name: "NIYONKURU Aline",
+      program: "Graphic Design",
+      title: "Graphic Designer",
+      quote: "Creativity is turning simple ideas into strong visuals.",
+      videoUrl: testimonial3,
+      thumbnail: Aline,
+      portfolioCardImage: Aline,
+      bio: "I am a creative designer who enjoys simplifying complex ideas into clean and impactful designs that balance simplicity with innovation.",
+      works: ["3D Short", "Game Environment", "VFX Reel"],
+      latestWork: [
+         { type: 'photo', url: AlineWork1, title: "Academic Certificate", description: "Professional certification from Greenland Film and Television School." },
+        { type: 'photo', url: AlineWork2, title: "Creative Poster", description: "Visual exploration of modern brand themes." },
+        { type: 'photo', url: AlineWork3, title: "Social Awareness", description: "Community project design and visual campaign." },
+        { type: 'photo', url: AlineWork4, title: "Commercial Brand", description: "Promotional artwork for local product marketing." },
+        { type: 'photo', url: AlineWork5, title: "Marketing Visual", description: "Brand communication strategies for school projects." },
+        { type: 'photo', url: AlineWork6, title: "Design Study", description: "Visual identity and logo exploration." },
+      ],
+      activities: [AlineActivity1, AlineActivity2, AlineActivity3],
+      phone: "+250 790 159 049",
+      email: "sandra.u@example.com",
+      youtubeLinks: [],
+      gender: 'female'
+    },
+     {
+      name: "TETA Aisha Fal-ha",
+      program: "Videography",
+      title: "Videographer",
+      quote: "Creativity begins the moment I press record.”",
+      videoUrl: testimonial3,
+      thumbnail: Aisha,
+      portfolioCardImage: Aisha,
+      bio: "I am an innovative videography student who enjoys experimenting with different filming techniques and editing styles to enhance visual storytelling.",
+      works: ["3D Short", "Game Environment", "VFX Reel"],
+      latestWork: [
+        { type: 'video', url: videoAll, title: "Latest Work", description: "Vibrant videography showcase" },
+        { type: 'video', url: videoBelFalMucyo, title: "Professional Reel", description: "Portfolio highlights and creative vision" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/s7iQwZOzWxc?autoplay=1', videoId: 's7iQwZOzWxc', title: "External Masterclass", description: "Professional external feature" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/ABY8QMeg55k?autoplay=1', videoId: 'ABY8QMeg55k', title: "Industry Interview", description: "Professional external feature" },
+        { type: 'youtube', url: 'https://www.youtube.com/embed/OOXoZZSjpdo?autoplay=1', videoId: 'OOXoZZSjpdo', title: "Creative Showcase", description: "Professional external feature" },
+        // { type: 'video', url: videoAmir, title: "Amir Project", description: "Latest school project feature" }
+      ],
+      activities: [AishaActivity1, AishaActivity2, AishaActivity3],
+      phone: "+250 796 907 942",
+      email: "sandra.u@example.com",
+      youtubeLinks: [],
+      gender: 'female'
+    },
+     {
+      name: "UWAMAHIRWE Charlotte",
+      program: "Graphic Design",
+      title: "Graphic Designer",
+      quote: "Design is where creativity meets purpose.",
+      videoUrl: testimonial3,
+      thumbnail: Charlotte,
+      portfolioCardImage: Charlotte,
+      bio: "I am a graphic design student passionate about creating visuals that are both meaningful and effective. I focus on combining creativity with strong design principles such as typography, color, and layout to communicate ideas clearly and leave a lasting impact.",
+      works: ["3D Short", "Game Environment", "VFX Reel"],
+      latestWork: [
+         { type: 'photo', url: CharlotteWork1, title: "Commercial Brand", description: "Inyange Milk product advertisement campaign." },
+        { type: 'photo', url: CharlotteWork2, title: "Marketing Visual", description: "Brand identity for Meadow Fresh dairy products." },
+        { type: 'photo', url: CharlotteWork3, title: "Product Advertisement", description: "Visual campaign for Inyange whole milk." },
+        { type: 'photo', url: CharlotteWork4, title: "Creative Poster", description: "Artistic representation of commercial dairy brands." },
+        { type: 'photo', url: CharlotteWork5, title: "Social Campaign", description: "Community awareness and hygiene design." },
+        { type: 'photo', url: CharlotteWork6, title: "Academic Project", description: "Portfolio development and design exploration." },
+      ],
+      activities: [CharlotteActivity1, CharlotteActivity2, CharlotteActivity3],
+      phone: "+250 729 943 825",
+      email: "sandra.u@example.com",
+      youtubeLinks: [],
+      gender: 'female'
+    },
+     {
+      name: "UWASE Sandrine",
+      program: "Graphic Design",
+      title: "Graphic Designer",
+      quote: "I create designs that don’t just look good—they communicate.",
+      videoUrl: testimonial3,
+      thumbnail: Sandrine,
+      portfolioCardImage: Sandrine,
+      bio: "I am a creative graphic designer who enjoys turning ideas into visually engaging content. My work is centered on clarity, innovation, and audience connection, ensuring that every design delivers its message in a simple and compelling way.",
+      works: ["3D Short", "Game Environment", "VFX Reel"],
+      latestWork: [
+         { type: 'photo', url: SandrineWork1, title: "Product Advertisement", description: "Brand identity visual for Akarabo Biscuits." },
+        { type: 'photo', url: SandrineWork2, title: "Marketing Visual", description: "Visual campaign for SINA GERARD products." },
+        { type: 'photo', url: SandrineWork3, title: "Commercial Brand", description: "Promotional artwork for local bakery brand." },
+        { type: 'photo', url: SandrineWork4, title: "Creative Poster", description: "Visual exploration of commercial marketing." },
+        { type: 'photo', url: SandrineWork5, title: "Social Awareness", description: "Community project design and campaign." },
+        { type: 'photo', url: SandrineWork6, title: "Academic Project", description: "Professional portfolio development for school." },
+      ],
+      activities: [SandrineActivity1, SandrineActivity2, SandrineActivity3],
+      phone: "+250 790 851 377",
+      email: "sandra.u@example.com",
+      youtubeLinks: [],
+      gender: 'female'
+    },
   ]
 
   const filteredStudents = useMemo(() => {
@@ -316,8 +988,8 @@ const PortfoliosPage = () => {
         <div className="px-8 md:px-32 relative z-10 py-4">
           <div className="flex flex-col items-center text-center space-y-6">
             <div className={`space-y-2 ${isLoaded ? 'reveal-up' : ''}`}>
-              <h1 className="text-xl md:text-3xl font-serif font-black text-gray-900 tracking-tight uppercase leading-tight">
-                Where Vision Meets Craft.
+              <h1 className="text-xl md:text-3xl font-black text-gray-900 tracking-tight uppercase leading-tight">
+                WHERE CAREERS ARE BUILT
               </h1>
             </div>
             <div className={`w-full max-w-3xl ${isLoaded ? 'reveal-up stagger-1' : ''}`}>
@@ -376,7 +1048,7 @@ const PortfoliosPage = () => {
                 style={{ animationDelay: `${(idx % 4) * 0.1 + 0.4}s` }}
               >
                 <img 
-                  src={student.thumbnail} 
+                  src={student.portfolioCardImage || student.thumbnail} 
                   alt={student.name} 
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                 />
@@ -395,9 +1067,9 @@ const PortfoliosPage = () => {
                 <div className="absolute inset-x-6 bottom-8 overlay-content transition-all duration-500 ease-out translate-y-0 z-10">
                   <div className="space-y-4 p-5 rounded-3xl bg-black/30 backdrop-blur-sm border border-white/10 shadow-2xl">
                     <div className="space-y-1">
-                      <h3 className="text-2xl font-serif font-bold leading-tight">
+                      <h3 className="text-2xl font-bold leading-tight">
                         {student.name.split(' ').map((n, i) => (
-                           <span key={i} className={i === 0 ? "text-white block" : "text-[#22c55e] block text-lg font-sans font-medium tracking-wide"}>
+                           <span key={i} className={i === 0 ? "text-white block" : "text-[#22c55e] block text-lg font-medium tracking-wide"}>
                              {n}
                            </span>
                         ))}
@@ -420,7 +1092,7 @@ const PortfoliosPage = () => {
               </div>
             ))
           ) : (
-            <div className="col-span-full py-40 flex flex-col items-center text-center space-y-6 reveal-up">
+            <div className="col-span-full py-12 flex flex-col items-center text-center space-y-6 reveal-up">
               <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center">
                 <FilterX className="w-10 h-10 text-gray-300" />
               </div>
