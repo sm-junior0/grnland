@@ -293,7 +293,7 @@ const PortfoliosPage = () => {
         { type: 'youtube', url: 'https://www.youtube.com/embed/s7iQwZOzWxc?autoplay=1', videoId: 's7iQwZOzWxc', title: "External Masterclass", description: "Professional external feature" },
         { type: 'youtube', url: 'https://www.youtube.com/embed/ABY8QMeg55k?autoplay=1', videoId: 'ABY8QMeg55k', title: "Industry Interview", description: "Professional external feature" },
         { type: 'youtube', url: 'https://www.youtube.com/embed/OOXoZZSjpdo?autoplay=1', videoId: 'OOXoZZSjpdo', title: "Creative Showcase", description: "Professional external feature" },
-        // { type: 'video', url: videoAmir, title: "Amir Project", description: "Latest school project feature" }
+        { type: 'youtube', url: 'https://www.youtube.com/embed/BAY6qh2yjg4?autoplay=1', videoId: 'BAY6qh2yjg4', title: "Visual Storytelling", description: "Creative student feature project" }
       ],
       activities: [FridausActivity1, FridausActivity2, FridausActivity3],
       phone: "+250 793 083 952",
@@ -317,7 +317,7 @@ const PortfoliosPage = () => {
         { type: 'youtube', url: 'https://www.youtube.com/embed/s7iQwZOzWxc?autoplay=1', videoId: 's7iQwZOzWxc', title: "External Masterclass", description: "Professional external feature" },
         { type: 'youtube', url: 'https://www.youtube.com/embed/ABY8QMeg55k?autoplay=1', videoId: 'ABY8QMeg55k', title: "Industry Interview", description: "Professional external feature" },
         { type: 'youtube', url: 'https://www.youtube.com/embed/OOXoZZSjpdo?autoplay=1', videoId: 'OOXoZZSjpdo', title: "Creative Showcase", description: "Professional external feature" },
-        // { type: 'video', url: videoAmir, title: "Amir Project", description: "Latest school project feature" }
+        { type: 'youtube', url: 'https://www.youtube.com/embed/BAY6qh2yjg4?autoplay=1', videoId: 'BAY6qh2yjg4', title: "Visual Storytelling", description: "Creative student feature project" }
       ],
       activities: [ClaudetteActivity1, ClaudetteActivity2],
       phone: "+250 782 072 462",
@@ -341,7 +341,7 @@ const PortfoliosPage = () => {
         { type: 'youtube', url: 'https://www.youtube.com/embed/s7iQwZOzWxc?autoplay=1', videoId: 's7iQwZOzWxc', title: "External Masterclass", description: "Professional external feature" },
         { type: 'youtube', url: 'https://www.youtube.com/embed/ABY8QMeg55k?autoplay=1', videoId: 'ABY8QMeg55k', title: "Industry Interview", description: "Professional external feature" },
         { type: 'youtube', url: 'https://www.youtube.com/embed/OOXoZZSjpdo?autoplay=1', videoId: 'OOXoZZSjpdo', title: "Creative Showcase", description: "Professional external feature" },
-        // { type: 'video', url: videoAmir, title: "Amir Project", description: "Latest school project feature" }
+        { type: 'youtube', url: 'https://www.youtube.com/embed/BAY6qh2yjg4?autoplay=1', videoId: 'BAY6qh2yjg4', title: "Visual Storytelling", description: "Creative student feature project" }
       ],
       activities: [heroImg2, heroImg4, heroImg6],
       phone: "+250 795 809 415",
@@ -387,7 +387,7 @@ const PortfoliosPage = () => {
         { type: 'youtube', url: 'https://www.youtube.com/embed/s7iQwZOzWxc?autoplay=1', videoId: 's7iQwZOzWxc', title: "External Masterclass", description: "Professional external feature" },
         { type: 'youtube', url: 'https://www.youtube.com/embed/ABY8QMeg55k?autoplay=1', videoId: 'ABY8QMeg55k', title: "Industry Interview", description: "Professional external feature" },
         { type: 'youtube', url: 'https://www.youtube.com/embed/OOXoZZSjpdo?autoplay=1', videoId: 'OOXoZZSjpdo', title: "Creative Showcase", description: "Professional external feature" },
-        // { type: 'video', url: videoAmir, title: "Amir Project", description: "Latest school project feature" }
+        { type: 'youtube', url: 'https://www.youtube.com/embed/BAY6qh2yjg4?autoplay=1', videoId: 'BAY6qh2yjg4', title: "Visual Storytelling", description: "Creative student feature project" }
       ],
       activities: [LouiseActivity1, LouiseActivity2, LouiseActivity3],
       phone: "+250 784 895 455",
@@ -411,7 +411,7 @@ const PortfoliosPage = () => {
         { type: 'youtube', url: 'https://www.youtube.com/embed/s7iQwZOzWxc?autoplay=1', videoId: 's7iQwZOzWxc', title: "External Masterclass", description: "Professional external feature" },
         { type: 'youtube', url: 'https://www.youtube.com/embed/ABY8QMeg55k?autoplay=1', videoId: 'ABY8QMeg55k', title: "Industry Interview", description: "Professional external feature" },
         { type: 'youtube', url: 'https://www.youtube.com/embed/OOXoZZSjpdo?autoplay=1', videoId: 'OOXoZZSjpdo', title: "Creative Showcase", description: "Professional external feature" },
-        // { type: 'video', url: videoAmir, title: "Amir Project", description: "Latest school project feature" }
+        { type: 'youtube', url: 'https://www.youtube.com/embed/BAY6qh2yjg4?autoplay=1', videoId: 'BAY6qh2yjg4', title: "Visual Storytelling", description: "Creative student feature project" }
       ],
       activities: [OliveActivity1, OliveActivity2, OliveActivity3],
       phone: "+250 791 224 865",
@@ -483,7 +483,7 @@ const PortfoliosPage = () => {
         { type: 'youtube', url: 'https://www.youtube.com/embed/s7iQwZOzWxc?autoplay=1', videoId: 's7iQwZOzWxc', title: "External Masterclass", description: "Professional external feature" },
         { type: 'youtube', url: 'https://www.youtube.com/embed/ABY8QMeg55k?autoplay=1', videoId: 'ABY8QMeg55k', title: "Industry Interview", description: "Professional external feature" },
         { type: 'youtube', url: 'https://www.youtube.com/embed/OOXoZZSjpdo?autoplay=1', videoId: 'OOXoZZSjpdo', title: "Creative Showcase", description: "Professional external feature" },
-        // { type: 'video', url: videoAmir, title: "Amir Project", description: "Latest school project feature" }
+        { type: 'youtube', url: 'https://www.youtube.com/embed/BAY6qh2yjg4?autoplay=1', videoId: 'BAY6qh2yjg4', title: "Visual Storytelling", description: "Creative student feature project" }
       ],
       activities: [ChristineActivity1, ChristineActivity2, ChristineActivity3],
       phone: "+250 791 930 166",
@@ -507,7 +507,7 @@ const PortfoliosPage = () => {
         { type: 'youtube', url: 'https://www.youtube.com/embed/s7iQwZOzWxc?autoplay=1', videoId: 's7iQwZOzWxc', title: "External Masterclass", description: "Professional external feature" },
         { type: 'youtube', url: 'https://www.youtube.com/embed/ABY8QMeg55k?autoplay=1', videoId: 'ABY8QMeg55k', title: "Industry Interview", description: "Professional external feature" },
         { type: 'youtube', url: 'https://www.youtube.com/embed/OOXoZZSjpdo?autoplay=1', videoId: 'OOXoZZSjpdo', title: "Creative Showcase", description: "Professional external feature" },
-        // { type: 'video', url: videoAmir, title: "Amir Project", description: "Latest school project feature" }
+        { type: 'youtube', url: 'https://www.youtube.com/embed/BAY6qh2yjg4?autoplay=1', videoId: 'BAY6qh2yjg4', title: "Visual Storytelling", description: "Creative student feature project" }
       ],
       activities: [NoellaActivity1, NoellaActivity2, NoellaActivity3],
       phone: "+250 788 575 943",
@@ -531,7 +531,7 @@ const PortfoliosPage = () => {
         { type: 'youtube', url: 'https://www.youtube.com/embed/s7iQwZOzWxc?autoplay=1', videoId: 's7iQwZOzWxc', title: "External Masterclass", description: "Professional external feature" },
         { type: 'youtube', url: 'https://www.youtube.com/embed/ABY8QMeg55k?autoplay=1', videoId: 'ABY8QMeg55k', title: "Industry Interview", description: "Professional external feature" },
         { type: 'youtube', url: 'https://www.youtube.com/embed/OOXoZZSjpdo?autoplay=1', videoId: 'OOXoZZSjpdo', title: "Creative Showcase", description: "Professional external feature" },
-        // { type: 'video', url: videoAmir, title: "Amir Project", description: "Latest school project feature" }
+        { type: 'youtube', url: 'https://www.youtube.com/embed/BAY6qh2yjg4?autoplay=1', videoId: 'BAY6qh2yjg4', title: "Visual Storytelling", description: "Creative student feature project" }
       ],
       activities: [NuriatActivity1, NuriatActivity2, NuriatActivity3],
       phone: "+250 790 250 533",
@@ -555,7 +555,7 @@ const PortfoliosPage = () => {
         { type: 'youtube', url: 'https://www.youtube.com/embed/s7iQwZOzWxc?autoplay=1', videoId: 's7iQwZOzWxc', title: "External Masterclass", description: "Professional external feature" },
         { type: 'youtube', url: 'https://www.youtube.com/embed/ABY8QMeg55k?autoplay=1', videoId: 'ABY8QMeg55k', title: "Industry Interview", description: "Professional external feature" },
         { type: 'youtube', url: 'https://www.youtube.com/embed/OOXoZZSjpdo?autoplay=1', videoId: 'OOXoZZSjpdo', title: "Creative Showcase", description: "Professional external feature" },
-        // { type: 'video', url: videoAmir, title: "Amir Project", description: "Latest school project feature" }
+        { type: 'youtube', url: 'https://www.youtube.com/embed/BAY6qh2yjg4?autoplay=1', videoId: 'BAY6qh2yjg4', title: "Visual Storytelling", description: "Creative student feature project" }
       ],
       activities: [LilianeActivity1, LilianeActivity2],
       phone: "+250 791 408 012",
@@ -603,7 +603,7 @@ const PortfoliosPage = () => {
         { type: 'youtube', url: 'https://www.youtube.com/embed/s7iQwZOzWxc?autoplay=1', videoId: 's7iQwZOzWxc', title: "External Masterclass", description: "Professional external feature" },
         { type: 'youtube', url: 'https://www.youtube.com/embed/ABY8QMeg55k?autoplay=1', videoId: 'ABY8QMeg55k', title: "Industry Interview", description: "Professional external feature" },
         { type: 'youtube', url: 'https://www.youtube.com/embed/OOXoZZSjpdo?autoplay=1', videoId: 'OOXoZZSjpdo', title: "Creative Showcase", description: "Professional external feature" },
-        // { type: 'video', url: videoAmir, title: "Amir Project", description: "Latest school project feature" }
+        { type: 'youtube', url: 'https://www.youtube.com/embed/BAY6qh2yjg4?autoplay=1', videoId: 'BAY6qh2yjg4', title: "Visual Storytelling", description: "Creative student feature project" }
       ],
       activities: [heroImg2, heroImg4, heroImg6],
       phone: "+250 729 388 373",
@@ -651,7 +651,7 @@ const PortfoliosPage = () => {
         { type: 'youtube', url: 'https://www.youtube.com/embed/s7iQwZOzWxc?autoplay=1', videoId: 's7iQwZOzWxc', title: "External Masterclass", description: "Professional external feature" },
         { type: 'youtube', url: 'https://www.youtube.com/embed/ABY8QMeg55k?autoplay=1', videoId: 'ABY8QMeg55k', title: "Industry Interview", description: "Professional external feature" },
         { type: 'youtube', url: 'https://www.youtube.com/embed/OOXoZZSjpdo?autoplay=1', videoId: 'OOXoZZSjpdo', title: "Creative Showcase", description: "Professional external feature" },
-        // { type: 'video', url: videoAmir, title: "Amir Project", description: "Latest school project feature" }
+        { type: 'youtube', url: 'https://www.youtube.com/embed/BAY6qh2yjg4?autoplay=1', videoId: 'BAY6qh2yjg4', title: "Visual Storytelling", description: "Creative student feature project" }
       ],
       activities: [BelyseIActivity1, BelyseIActivity2, BelyseIActivity3],
       phone: "+250 790 040 273",
@@ -675,7 +675,7 @@ const PortfoliosPage = () => {
         { type: 'youtube', url: 'https://www.youtube.com/embed/s7iQwZOzWxc?autoplay=1', videoId: 's7iQwZOzWxc', title: "External Masterclass", description: "Professional external feature" },
         { type: 'youtube', url: 'https://www.youtube.com/embed/ABY8QMeg55k?autoplay=1', videoId: 'ABY8QMeg55k', title: "Industry Interview", description: "Professional external feature" },
         { type: 'youtube', url: 'https://www.youtube.com/embed/OOXoZZSjpdo?autoplay=1', videoId: 'OOXoZZSjpdo', title: "Creative Showcase", description: "Professional external feature" },
-        // { type: 'video', url: videoAmir, title: "Amir Project", description: "Latest school project feature" }
+        { type: 'youtube', url: 'https://www.youtube.com/embed/BAY6qh2yjg4?autoplay=1', videoId: 'BAY6qh2yjg4', title: "Visual Storytelling", description: "Creative student feature project" }
       ],
       activities: [ValentineActivity1, ValentineActivity2, ValentineActivity3],
       phone: "+250 793 856 245",
@@ -699,7 +699,7 @@ const PortfoliosPage = () => {
         { type: 'youtube', url: 'https://www.youtube.com/embed/s7iQwZOzWxc?autoplay=1', videoId: 's7iQwZOzWxc', title: "External Masterclass", description: "Professional external feature" },
         { type: 'youtube', url: 'https://www.youtube.com/embed/ABY8QMeg55k?autoplay=1', videoId: 'ABY8QMeg55k', title: "Industry Interview", description: "Professional external feature" },
         { type: 'youtube', url: 'https://www.youtube.com/embed/OOXoZZSjpdo?autoplay=1', videoId: 'OOXoZZSjpdo', title: "Creative Showcase", description: "Professional external feature" },
-        // { type: 'video', url: videoAmir, title: "Amir Project", description: "Latest school project feature" }
+        { type: 'youtube', url: 'https://www.youtube.com/embed/BAY6qh2yjg4?autoplay=1', videoId: 'BAY6qh2yjg4', title: "Visual Storytelling", description: "Creative student feature project" }
       ],
       activities: [BenithaNActivity1, BenithaNActivity2, BenithaNActivity3],
       phone: "+250 783 450 415",
@@ -771,7 +771,7 @@ const PortfoliosPage = () => {
         { type: 'youtube', url: 'https://www.youtube.com/embed/s7iQwZOzWxc?autoplay=1', videoId: 's7iQwZOzWxc', title: "External Masterclass", description: "Professional external feature" },
         { type: 'youtube', url: 'https://www.youtube.com/embed/ABY8QMeg55k?autoplay=1', videoId: 'ABY8QMeg55k', title: "Industry Interview", description: "Professional external feature" },
         { type: 'youtube', url: 'https://www.youtube.com/embed/OOXoZZSjpdo?autoplay=1', videoId: 'OOXoZZSjpdo', title: "Creative Showcase", description: "Professional external feature" },
-        // { type: 'video', url: videoAmir, title: "Amir Project", description: "Latest school project feature" }
+        { type: 'youtube', url: 'https://www.youtube.com/embed/BAY6qh2yjg4?autoplay=1', videoId: 'BAY6qh2yjg4', title: "Visual Storytelling", description: "Creative student feature project" }
       ],
       activities: [AishaActivity1, AishaActivity2, AishaActivity3],
       phone: "+250 796 907 942",
