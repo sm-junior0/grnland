@@ -164,7 +164,7 @@ export function StudentPortfolioModal({ isOpen, onClose, student }: StudentPortf
               <div className="relative h-64 sm:h-80 lg:h-96 order-2 lg:order-1">
                 <div className="w-full h-full bg-gray-100 rounded-2xl overflow-hidden shadow-xl border border-gray-100">
                   <img
-                    src={student.portfolioCardImage || student.thumbnail}
+                    src={(student.activities && student.activities.length > 0) ? student.activities[0] : (student.portfolioCardImage || student.thumbnail)}
                     alt={`${student?.name} profile`}
                     className="w-full h-full object-cover"
                   />
